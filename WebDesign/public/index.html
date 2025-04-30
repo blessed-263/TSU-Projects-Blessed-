@@ -8,22 +8,13 @@
 			content="HTML/CSS/JS image processing application"
 		/>
 		<link rel="icon" type="image/svg+xml" href="images/icon.svg" />
-		<title>ImageProcessingLab</title>
+
+		<link rel="stylesheet" href="../src/assets/css/main.css" />
+		<script src="../src/assets/js/utils.js"></script>
+		<title>Image Processing Lab</title>
 	</head>
 	<body>
 		<header>
-			<h1>
-				Image Processing Lab
-				<br />
-				<img
-					src="images/image-main.jpg"
-					alt="Optimized example"
-					width="800"
-					height="400"
-					style="width: 100%; max-width: 800px; height: auto"
-				/>
-			</h1>
-
 			<nav aria-label="Main navigation">
 				<ul>
 					<li><a href="#overview">Home</a></li>
@@ -88,11 +79,26 @@
 					<li><a href="#updates">Updates</a></li>
 				</ul>
 			</nav>
+			<h1>Image Processing Lab</h1>
+			<img
+				src="images/algorithm2.jpg"
+				alt="Optimized example"
+				width="800"
+				height="400"
+				class="beautiful-image"
+			/>
 		</header>
 
 		<main>
 			<section id="overview" aria-labelledby="overview-heading">
 				<h2 id="overview-heading">Project Overview</h2>
+				<img
+					src="images/hash.jpg"
+					alt="Optimized example"
+					width="800"
+					height="400"
+					class="beautiful-image"
+				/>
 				<p>
 					Pure HTML/CSS/JavaScript implementation for image processing with
 					real-time algorithm execution and parameter control.
@@ -121,18 +127,75 @@
 
 			<section id="team" aria-labelledby="team-heading">
 				<h2 id="team-heading">Development Team</h2>
-				<article>
-					<h3>Blessed Panashe Nyathi</h3>
-					<p>First Year SE student (Tomsk State University)</p>
-					<p>
-						Responsibilities: Core algorithm implementation and system
-						architecture
-					</p>
-				</article>
+				<div class="team-member">
+					<img
+						src="images/blessed.jpg"
+						alt="Portrait of Blessed Panashe Nyathi"
+						class="member-photo"
+						width="150"
+						height="150"
+					/>
+					<button
+						id="blessed-name"
+						aria-expanded="false"
+						aria-controls="blessed-details"
+						class="member-name"
+						type="button"
+					>
+						Blessed Panashe Nyathi
+					</button>
+					<div id="blessed-details" class="member-details" hidden>
+						<article>
+							<h4>Blessed Panashe Nyathi</h4>
+							<p>
+								Bachelor of Science in Software Engineering student at Tomsk
+								State University (2024-2028)
+							</p>
+							<p>
+								Motivated software engineering student with intermediate Russian
+								proficiency (B1 level) and strong technical skills in C++,
+								Python, and R programming. Currently engaged in foundational
+								courses including Programming (C++), Discrete Mathematics, and
+								Software Engineering Principles at TSU.
+							</p>
+							<p><strong>Key Technical Skills:</strong></p>
+							<ul>
+								<li>Algorithm design and implementation</li>
+								<li>Client-side web technologies (HTML/CSS/JavaScript)</li>
+								<li>Data analysis with R and Python</li>
+								<li>Object-oriented programming in C++</li>
+							</ul>
+							<p><strong>Russian Language Proficiency:</strong></p>
+							<ul>
+								<li>Completed TSU's preparatory Russian language course</li>
+								<li>
+									Volunteer translator helping international students with
+									administrative processes
+								</li>
+								<li>
+									Experience navigating Russian academic and immigration systems
+								</li>
+							</ul>
+							<p>
+								Recipient of the 2022/2023 Zimbabwe Presidential Scholarship for
+								international studies in Russia. Actively participating in TSU's
+								coding community and seeking internships in software
+								development.
+							</p>
+						</article>
+					</div>
+				</div>
 			</section>
 
 			<section id="workflow" aria-labelledby="workflow-heading">
 				<h2 id="workflow-heading">Processing Workflow</h2>
+				<img
+					src="images/workflow.jpg"
+					alt="Optimized example"
+					width="800"
+					height="400"
+					class="beautiful-image"
+				/>
 				<ol>
 					<li>Image upload via file input</li>
 					<li>Algorithm selection from dropdown</li>
@@ -144,6 +207,13 @@
 
 			<section id="algorithm-overview" aria-labelledby="algorithm-heading">
 				<h2 id="algorithm-heading">Algorithm Implementation</h2>
+				<img
+					src="images/algorithm.jpg"
+					alt="Optimized example"
+					width="800"
+					height="400"
+					class="beautiful-image"
+				/>
 				<ol>
 					<li>
 						<article>
@@ -235,6 +305,13 @@
 
 			<section id="updates" aria-labelledby="updates-heading">
 				<h2 id="updates-heading">Project Updates</h2>
+				<img
+					src="images/coming-soon.jpg"
+					alt="Optimized example"
+					width="800"
+					height="400"
+					class="beautiful-image"
+				/>
 				<p>To be Updated</p>
 			</section>
 		</main>
