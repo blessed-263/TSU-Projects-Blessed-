@@ -1,28 +1,60 @@
-# Module 7: Web Development and Image Processing Project
+# 📷 Image Processing Web Application
 
-**Team Name**: RIDING-SOLO
-**Members** : [Blessed Panashe Nyathi]
-**Git Repository** : https://github.com/blessed-263/TSU-Projects-Blessed-
+**Module 7: Web Development & Image Processing Project**
 
-## 📌 Project Overview
+**Team Name**: RIDING-SOLO  
+**Member**: Blessed Panashe Nyathi  
+**GitHub Repository**: [TSU-Projects-Blessed-](https://github.com/blessed-263/TSU-Projects-Blessed-)
 
-A web application implementing **8 core image-processing algorithms**, each with simple and advanced versions. Built with HTML, CSS, and JavaScript
+---
 
-## 🎯Key Features
+## 🌟 Project Overview
 
-**9 algorithms**
-**Responsive UI**
+A responsive **web application** built with **HTML, CSS, and JavaScript** that implements **8 core image-processing algorithms**, each with **simple** and **advanced** versions.
 
-## 🛠️ Algorithms Implemented
+**Key Features**:  
+✅ **9 algorithms** covering essential image operations  
+✅ **Interactive UI** with real-time previews  
+✅ **Responsive design** (works on desktop & mobile)  
+✅ **Modular code** for easy maintenance
 
-| Algorithm            | Simple (17 pts)  | Advanced (25 pts)               | Status     |
-| -------------------- | ---------------- | ------------------------------- | ---------- |
-| Image Rotation       | 90° increments   | Arbitrary angles + frame fix    | ❌ Pending |
-| Color Filters        | 3 basic filters  | 3+ algorithmic filters          | ❌ Pending |
-| Image Scaling        | Basic scaling    | Anti-aliasing for large scales  | ❌ Pending |
-| Image Segmentation   | Geometric shapes | Object/people contours (OpenCV) | ❌ Pending |
-| Spline Interpolation | Broken → spline  | Adjustable convexity            | ❌ Pending |
-| Retouching           | Basic spot fix   | Content-aware fill              | ❌ Pending |
-| Unsharp Masking      | Fixed ratios     | Custom kernel control           | ❌ Pending |
-| Bilinear/Trilinear   | Basic transform  | Dynamic scaling choice          | ❌ Pending |
-| 3D Cube              | D6 cube          | N-face selection (Three.js)     | ❌ Pending |
+---
+
+## 🛠️ Implemented Algorithms
+
+| Algorithm                | Simple Version (17 pts)      | Advanced Version (25 pts)       | Status     |
+| ------------------------ | ---------------------------- | ------------------------------- | ---------- |
+| **Image Rotation**       | 90° increments               | Arbitrary angles + frame fix    | ❌ Pending |
+| **Color Filters**        | 3 basic filters (B/W, Sepia) | 3+ algorithmic filters (HSV)    | ❌ Pending |
+| **Image Scaling**        | Basic pixel scaling          | Anti-aliasing for large scales  | ❌ Pending |
+| **Segmentation**         | Geometric shapes             | Object/people contours (OpenCV) | ❌ Pending |
+| **Spline Interpolation** | Broken → spline repair       | Adjustable convexity control    | ❌ Pending |
+| **Retouching**           | Basic spot removal           | Content-aware fill              | ❌ Pending |
+| **Unsharp Masking**      | Fixed kernel ratios          | Custom kernel control           | ❌ Pending |
+| **3D Cube**              | D6 cube (Three.js)           | N-face selection                | ❌ Pending |
+
+---
+
+## 📅 Development Progress
+
+### **Day 1**
+
+- Created project repository and folder structure
+- Drafted initial README.md
+- Set up base HTML/CSS for the main page
+
+### **Next Steps**
+
+- [ ] Implement core algorithms (start with Rotation/Filters)
+- [ ] Add interactive sliders/buttons for adjustments
+- [ ] Optimize performance for large images
+
+---
+
+## ⚡ How to Run
+
+```bash
+git clone https://github.com/blessed-263/TSU-Projects-Blessed-.git
+cd TSU-Projects-Blessed-
+open index.html  # Or use Live Server in VS Code
+```
