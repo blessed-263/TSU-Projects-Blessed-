@@ -549,3 +549,21 @@ html {
 .sidebar-bottom-icon:hover img {
 	filter: invert(100%);
 }
+
+a:visited {
+	color: #a5c300;
+}
+
+a:hover,
+a:focus {
+	color: #fff;
+	background-color: #cdfeaa;
+	text-decoration: none;
+	outline: 2px solid #bae498;
+	outline-offset: 2px;
+}
+
+a:active {
+	color: #cdfeaa;
+	background-color: #6900ff;
+}
