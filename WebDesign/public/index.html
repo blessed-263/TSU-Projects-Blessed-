@@ -8,318 +8,366 @@
 			content="HTML/CSS/JS image processing application"
 		/>
 		<link rel="icon" type="image/svg+xml" href="images/icon.svg" />
-
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="../src/assets/css/main.css" />
-		<script src="../src/assets/js/utils.js"></script>
 		<title>Image Processing Lab</title>
 	</head>
 	<body>
-		<header>
-			<nav aria-label="Main navigation">
-				<ul>
-					<li><a href="#overview">Home</a></li>
-					<li>
-						<span>Algorithms</span>
-						<ul class="algorithm-links">
-							<li>
-								<a href="../src/algorithms/rotation/simple/">Image Rotation</a>
-							</li>
-							<li>
-								<a href="../src/algorithms/color-correction/simple/"
-									>Color Correction & Filters</a
-								>
-							</li>
-							<li>
-								<a href="../src/algorithms/image-scaling/simple/"
-									>Image Scaling</a
-								>
-							</li>
-							<li>
-								<a href="../src/algorithms/image-segmentation/simple/"
-									>Image Segmentation</a
-								>
-							</li>
-							<li>
-								<a href="../src/algorithms/broken-lines/simple/"
-									>Broken Lines & Splines</a
-								>
-							</li>
-							<li>
-								<a href="../src/algorithms/retouching/simple/"
-									>Image Retouching</a
-								>
-							</li>
-							<li>
-								<a href="../src/algorithms/unsharp-masking/simple/"
-									>Unsharp Masking</a
-								>
-							</li>
-							<li>
-								<a
-									href="../src/algorithms/Bilinear-and-trilinear-filtering/simple/"
-									>Bilinear/Trilinear Filtering</a
-								>
-							</li>
-							<li>
-								<a href="../src/algorithms/3d-cube/simple/"
-									>3D Cube Projection</a
-								>
-							</li>
-						</ul>
-					</li>
-					<li><a href="#team">Team</a></li>
-					<li>
-						<a
-							href="https://github.com/blessed-263/TSU-Projects-Blessed-"
-							target="_blank"
-							rel="noopener"
-							>Repository</a
-						>
-					</li>
-					<li><a href="#updates">Updates</a></li>
-				</ul>
-			</nav>
-			<h1>Image Processing Lab</h1>
-			<img
-				src="images/algorithm2.jpg"
-				alt="Optimized example"
-				width="800"
-				height="400"
-				class="beautiful-image"
-			/>
-		</header>
+		<div class="menu-btn">
+			<i class="fas fa-bars"></i>
+		</div>
 
-		<main>
-			<section id="overview" aria-labelledby="overview-heading">
-				<h2 id="overview-heading">Project Overview</h2>
-				<img
-					src="images/hash.jpg"
-					alt="Optimized example"
-					width="800"
-					height="400"
-					class="beautiful-image"
-				/>
-				<p>
-					Pure HTML/CSS/JavaScript implementation for image processing with
-					real-time algorithm execution and parameter control.
-				</p>
-			</section>
+		<nav class="sidebar" aria-label="Main navigation">
+			<div class="close-btn">
+				<i class="fas fa-times"></i>
+			</div>
 
-			<section id="features" aria-labelledby="features-heading">
-				<h2 id="features-heading">Core Features</h2>
-				<ul>
-					<li>Client-side image processing</li>
-					<li>Real-time parameter adjustment</li>
-					<li>Multiple filter implementations</li>
-					<li>Cross-browser compatibility</li>
-					<li>Mobile-friendly interface</li>
-				</ul>
-			</section>
-
-			<section id="technologies" aria-labelledby="tech-heading">
-				<h2 id="tech-heading">Technology Stack</h2>
-				<ul>
-					<li>HTML5 (Semantic Structure)</li>
-					<li>CSS3 (Presentation Layer)</li>
-					<li>JavaScript (ES6 Processing Logic)</li>
-				</ul>
-			</section>
-
-			<section id="team" aria-labelledby="team-heading">
-				<h2 id="team-heading">Development Team</h2>
-				<div class="team-member">
-					<img
-						src="images/blessed.jpg"
-						alt="Portrait of Blessed Panashe Nyathi"
-						class="member-photo"
-						width="150"
-						height="150"
-					/>
-					<button
-						id="blessed-name"
-						aria-expanded="false"
-						aria-controls="blessed-details"
-						class="member-name"
-						type="button"
-					>
-						Blessed Panashe Nyathi
-					</button>
-					<div id="blessed-details" class="member-details" hidden>
-						<article>
-							<h4>Blessed Panashe Nyathi</h4>
-							<p>
-								Bachelor of Science in Software Engineering student at Tomsk
-								State University (2024-2028)
-							</p>
-							<p>
-								Motivated software engineering student with intermediate Russian
-								proficiency (B1 level) and strong technical skills in C++,
-								Python, and R programming. Currently engaged in foundational
-								courses including Programming (C++), Discrete Mathematics, and
-								Software Engineering Principles at TSU.
-							</p>
-							<p><strong>Key Technical Skills:</strong></p>
-							<ul>
-								<li>Algorithm design and implementation</li>
-								<li>Client-side web technologies (HTML/CSS/JavaScript)</li>
-								<li>Data analysis with R and Python</li>
-								<li>Object-oriented programming in C++</li>
-							</ul>
-							<p><strong>Russian Language Proficiency:</strong></p>
-							<ul>
-								<li>Completed TSU's preparatory Russian language course</li>
-								<li>
-									Volunteer translator helping international students with
-									administrative processes
-								</li>
-								<li>
-									Experience navigating Russian academic and immigration systems
-								</li>
-							</ul>
-							<p>
-								Recipient of the 2022/2023 Zimbabwe Presidential Scholarship for
-								international studies in Russia. Actively participating in TSU's
-								coding community and seeking internships in software
-								development.
-							</p>
-						</article>
+			<ul class="nav-links">
+				<li>
+					<a href="#overview">
+						<i class="fas fa-home"></i>
+						<span class="link-name">Home</span>
+					</a>
+				</li>
+				<li>
+					<div class="icon-link">
+						<a href="#">
+							<i class="fas fa-code"></i>
+							<span class="link-name">Algorithms</span>
+						</a>
+						<i class="fas fa-angle-down arrow"></i>
 					</div>
-				</div>
-			</section>
-
-			<section id="workflow" aria-labelledby="workflow-heading">
-				<h2 id="workflow-heading">Processing Workflow</h2>
-				<img
-					src="images/workflow.jpg"
-					alt="Optimized example"
-					width="800"
-					height="400"
-					class="beautiful-image"
-				/>
-				<ol>
-					<li>Image upload via file input</li>
-					<li>Algorithm selection from dropdown</li>
-					<li>Parameter adjustment through form controls</li>
-					<li>Real-time processing</li>
-					<li>Result export via browser APIs</li>
-				</ol>
-			</section>
-
-			<section id="algorithm-overview" aria-labelledby="algorithm-heading">
-				<h2 id="algorithm-heading">Algorithm Implementation</h2>
-				<img
-					src="images/algorithm.jpg"
-					alt="Optimized example"
-					width="800"
-					height="400"
-					class="beautiful-image"
-				/>
-				<ol>
-					<li>
-						<article>
-							<h3>Image Rotation</h3>
-							<p>Simple: 90° increment rotation</p>
-							<p>Advanced: Arbitrary angles with frame correction</p>
-							<a href="../src/algorithms/rotation/simple/">Implementation</a>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>Color Correction</h3>
-							<p>Simple: 3+ basic filters</p>
-							<p>Advanced: Algorithmically distinct filters</p>
-							<a href="../src/algorithms/color-correction/simple/"
-								>Implementation</a
-							>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>Image Scaling</h3>
-							<p>Simple: Basic scaling with interpolation</p>
-							<p>Advanced: Anti-aliased large scaling</p>
-							<a href="../src/algorithms/image-scaling/simple/"
-								>Implementation</a
-							>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>Image Segmentation</h3>
-							<p>Simple: Geometric shape detection</p>
-							<p>Advanced: Complex object segmentation</p>
-							<a href="../src/algorithms/image-segmentation/simple/"
-								>Implementation</a
-							>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>Broken Lines & Splines</h3>
-							<p>Simple: Linear interpolation</p>
-							<p>Advanced: Adjustable convexity splines</p>
-							<a href="../src/algorithms/broken-lines/simple/"
-								>Implementation</a
-							>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>Image Retouching</h3>
-							<p>Simple: Basic clone stamp</p>
-							<p>Advanced: Content-aware filling</p>
-							<a href="../src/algorithms/retouching/simple/">Implementation</a>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>Unsharp Masking</h3>
-							<p>Simple: Fixed kernel sharpening</p>
-							<p>Advanced: Adjustable parameters</p>
-							<a href="../src/algorithms/unsharp-masking/simple/"
-								>Implementation</a
-							>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>Bilinear/Trilinear Filtering</h3>
-							<p>Simple: Basic image warping</p>
-							<p>Advanced: Mipmap-based filtering</p>
+					<ul class="sub-menu">
+						<li>
+							<a href="../src/algorithms/rotation/simple/">
+								<i class="fas fa-rotate"></i>
+								<span>Image Rotation</span>
+							</a>
+						</li>
+						<li>
+							<a href="../src/algorithms/color-correction/simple/">
+								<i class="fas fa-palette"></i>
+								<span>Color Correction</span>
+							</a>
+						</li>
+						<li>
+							<a href="../src/algorithms/image-scaling/simple/">
+								<i class="fas fa-expand"></i>
+								<span>Image Scaling</span>
+							</a>
+						</li>
+						<li>
+							<a href="../src/algorithms/image-segmentation/simple/">
+								<i class="fas fa-object-group"></i>
+								<span>Image Segmentation</span>
+							</a>
+						</li>
+						<li>
+							<a href="../src/algorithms/broken-lines/simple/">
+								<i class="fas fa-project-diagram"></i>
+								<span>Broken Lines</span>
+							</a>
+						</li>
+						<li>
+							<a href="../src/algorithms/retouching/simple/">
+								<i class="fas fa-magic"></i>
+								<span>Image Retouching</span>
+							</a>
+						</li>
+						<li>
+							<a href="../src/algorithms/unsharp-masking/simple/">
+								<i class="fas fa-mask"></i>
+								<span>Unsharp Masking</span>
+							</a>
+						</li>
+						<li>
 							<a
 								href="../src/algorithms/Bilinear-and-trilinear-filtering/simple/"
-								>Implementation</a
 							>
-						</article>
-					</li>
-					<li>
-						<article>
-							<h3>3D Cube Projection</h3>
-							<p>Simple: Fixed die rotation</p>
-							<p>Advanced: Customizable polyhedrons</p>
-							<a href="../src/algorithms/3d-cube/simple/">Implementation</a>
-						</article>
-					</li>
-				</ol>
-			</section>
+								<i class="fas fa-filter"></i>
+								<span>Bilinear/Trilinear</span>
+							</a>
+						</li>
+						<li>
+							<a href="../src/algorithms/3d-cube/simple/">
+								<i class="fas fa-cube"></i>
+								<span>3D Cube Projection</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#team">
+						<i class="fas fa-users"></i>
+						<span class="link-name">Team</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://github.com/blessed-263/TSU-Projects-Blessed-"
+						target="_blank"
+						rel="noopener"
+					>
+						<i class="fab fa-github"></i>
+						<span class="link-name">Repository</span>
+					</a>
+				</li>
+				<li>
+					<a href="#updates">
+						<i class="fas fa-sync-alt"></i>
+						<span class="link-name">Updates</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
 
-			<section id="updates" aria-labelledby="updates-heading">
-				<h2 id="updates-heading">Project Updates</h2>
+		<div class="main-content">
+			<header>
+				<h1>Image Processing Lab</h1>
 				<img
-					src="images/coming-soon.jpg"
+					src="images/image-main.jpg"
 					alt="Optimized example"
 					width="800"
 					height="400"
 					class="beautiful-image"
 				/>
-				<p>To be Updated</p>
-			</section>
-		</main>
+			</header>
 
-		<footer>
-			<p>&copy; Image Processing Lab</p>
-			<p>Pure Client-Side Implementation</p>
-			<p>Academic Project - Tomsk State University</p>
-		</footer>
+			<main>
+				<section id="overview" aria-labelledby="overview-heading">
+					<h2 id="overview-heading">Project Overview</h2>
+					<img
+						src="images/hash.jpg"
+						alt="Optimized example"
+						width="800"
+						height="400"
+						class="beautiful-image"
+					/>
+					<p>
+						Pure HTML/CSS/JavaScript implementation for image processing with
+						real-time algorithm execution and parameter control.
+					</p>
+				</section>
+
+				<section id="features" aria-labelledby="features-heading">
+					<h2 id="features-heading">Core Features</h2>
+					<ul>
+						<li>Client-side image processing</li>
+						<li>Real-time parameter adjustment</li>
+						<li>Multiple filter implementations</li>
+						<li>Cross-browser compatibility</li>
+						<li>Mobile-friendly interface</li>
+					</ul>
+				</section>
+
+				<section id="technologies" aria-labelledby="tech-heading">
+					<h2 id="tech-heading">Technology Stack</h2>
+					<ul>
+						<li>HTML5 (Semantic Structure)</li>
+						<li>CSS3 (Presentation Layer)</li>
+						<li>JavaScript (ES6 Processing Logic)</li>
+					</ul>
+				</section>
+
+				<section id="team" aria-labelledby="team-heading">
+					<h2 id="team-heading">Development Team</h2>
+					<div class="team-member">
+						<img
+							src="images/blessed.jpg"
+							alt="Portrait of Blessed Panashe Nyathi"
+							class="member-photo"
+							width="150"
+							height="150"
+						/>
+						<button
+							id="blessed-name"
+							aria-expanded="false"
+							aria-controls="blessed-details"
+							class="member-name"
+							type="button"
+						>
+							Blessed Panashe Nyathi
+						</button>
+						<div id="blessed-details" class="member-details" hidden>
+							<article>
+								<h4>Blessed Panashe Nyathi</h4>
+								<p>
+									Bachelor of Science in Software Engineering student at Tomsk
+									State University (2024-2028)
+								</p>
+								<p>
+									Motivated software engineering student with intermediate
+									Russian proficiency (B1 level) and strong technical skills in
+									C++, Python, and R programming.
+								</p>
+								<p><strong>Key Technical Skills:</strong></p>
+								<ul>
+									<li>Algorithm design and implementation</li>
+									<li>Client-side web technologies (HTML/CSS/JavaScript)</li>
+									<li>Data analysis with R and Python</li>
+								</ul>
+								<p><strong>Russian Language Proficiency:</strong></p>
+								<ul>
+									<li>Completed TSU's preparatory Russian language course</li>
+									<li>
+										Volunteer helping international students with administrative
+										processes
+									</li>
+									<li>
+										Experience navigating Russian academic and immigration
+										systems
+									</li>
+								</ul>
+							</article>
+						</div>
+					</div>
+				</section>
+
+				<section id="workflow" aria-labelledby="workflow-heading">
+					<h2 id="workflow-heading">Processing Workflow</h2>
+					<img
+						src="images/workflow.jpg"
+						alt="Optimized example"
+						width="800"
+						height="400"
+						class="beautiful-image"
+					/>
+					<ol>
+						<li>Image upload via file input</li>
+						<li>Algorithm selection from dropdown</li>
+						<li>Parameter adjustment through form controls</li>
+						<li>Real-time processing</li>
+						<li>Result export via browser APIs</li>
+					</ol>
+				</section>
+
+				<section id="algorithm-overview" aria-labelledby="algorithm-heading">
+					<h2 id="algorithm-heading">Algorithm Implementation</h2>
+					<img
+						src="images/algorithm.jpg"
+						alt="Optimized example"
+						width="800"
+						height="400"
+						class="beautiful-image"
+					/>
+					<ol>
+						<li>
+							<article>
+								<h3>Image Rotation</h3>
+								<p>Simple: 90° increment rotation</p>
+								<p>Advanced: Arbitrary angles with frame correction</p>
+								<a href="../src/algorithms/rotation/simple/">Implementation</a>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>Color Correction</h3>
+								<p>Simple: 3+ basic filters</p>
+								<p>Advanced: Algorithmically distinct filters</p>
+								<a href="../src/algorithms/color-correction/simple/"
+									>Implementation</a
+								>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>Image Scaling</h3>
+								<p>Simple: Basic scaling with interpolation</p>
+								<p>Advanced: Anti-aliased large scaling</p>
+								<a href="../src/algorithms/image-scaling/simple/"
+									>Implementation</a
+								>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>Image Segmentation</h3>
+								<p>Simple: Geometric shape detection</p>
+								<p>Advanced: Complex object segmentation</p>
+								<a href="../src/algorithms/image-segmentation/simple/"
+									>Implementation</a
+								>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>Broken Lines & Splines</h3>
+								<p>Simple: Linear interpolation</p>
+								<p>Advanced: Adjustable convexity splines</p>
+								<a href="../src/algorithms/broken-lines/simple/"
+									>Implementation</a
+								>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>Image Retouching</h3>
+								<p>Simple: Basic clone stamp</p>
+								<p>Advanced: Content-aware filling</p>
+								<a href="../src/algorithms/retouching/simple/"
+									>Implementation</a
+								>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>Unsharp Masking</h3>
+								<p>Simple: Fixed kernel sharpening</p>
+								<p>Advanced: Adjustable parameters</p>
+								<a href="../src/algorithms/unsharp-masking/simple/"
+									>Implementation</a
+								>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>Bilinear/Trilinear Filtering</h3>
+								<p>Simple: Basic image warping</p>
+								<p>Advanced: Mipmap-based filtering</p>
+								<a
+									href="../src/algorithms/Bilinear-and-trilinear-filtering/simple/"
+									>Implementation</a
+								>
+							</article>
+						</li>
+						<li>
+							<article>
+								<h3>3D Cube Projection</h3>
+								<p>Simple: Fixed die rotation</p>
+								<p>Advanced: Customizable polyhedrons</p>
+								<a href="../src/algorithms/3d-cube/simple/">Implementation</a>
+							</article>
+						</li>
+					</ol>
+				</section>
+
+				<section id="updates" aria-labelledby="updates-heading">
+					<h2 id="updates-heading">Project Updates</h2>
+					<img
+						src="images/coming-soon.jpg"
+						alt="Optimized example"
+						width="800"
+						height="400"
+						class="beautiful-image"
+					/>
+					<p>To be Updated</p>
+				</section>
+			</main>
+
+			<footer>
+				<p>&copy; Image Processing Lab</p>
+				<p>Pure Client-Side Implementation</p>
+				<p>Academic Project - Tomsk State University</p>
+			</footer>
+		</div>
+
+		<script src="script.js"></script>
 	</body>
 </html>
