@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Simple Rotation | Image Processing Web Application</title>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="../../../../public/images/icon.svg"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../../assets/css/utils.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+
+		<link rel="stylesheet" href="style.css" />
+		<script src="../../../assets/js/utils.js" defer></script>
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<div class="menu-btn"><i class="fas fa-bars"></i></div>
+		<nav class="sidebar" aria-label="Main navigation">
+			<div class="close-btn"><i class="fas fa-times"></i></div>
+			<ul class="nav-links">
+				<li>
+					<a href="../../../../public/index.html"
+						><i class="fas fa-home"></i> <span class="link-name">Home</span></a
+					>
+				</li>
+				<li>
+					<div class="icon-link">
+						<a href="#"
+							><i class="fas fa-code"></i>
+							<span class="link-name">Algorithms</span></a
+						>
+						<i class="fas fa-angle-down arrow"></i>
+					</div>
+					<ul class="sub-menu">
+						<li>
+							<a href="../../rotation/simple/index.html"
+								><i class="fas fa-rotate"></i> Image Rotation</a
+							>
+						</li>
+						<li>
+							<a href="../../color-correction/simple/index.html"
+								><i class="fas fa-palette"></i> Color Correction</a
+							>
+						</li>
+						<li>
+							<a href="../../image-scaling/simple/index.html"
+								><i class="fas fa-expand"></i> Image Scaling</a
+							>
+						</li>
+						<li>
+							<a href="../../image-segmentation/simple/index.html"
+								><i class="fas fa-object-group"></i> Image Segmentation</a
+							>
+						</li>
+						<li>
+							<a href="../../broken-lines/simple/index.html"
+								><i class="fas fa-project-diagram"></i> Spline Interpolation</a
+							>
+						</li>
+						<li>
+							<a href="../../retouching/simple/index.html"
+								><i class="fas fa-magic"></i> Retouching</a
+							>
+						</li>
+						<li>
+							<a href="../../unsharp-masking/simple/index.html"
+								><i class="fas fa-mask"></i> Unsharp Masking</a
+							>
+						</li>
+						<li>
+							<a href="../../Bilinear-and-trilinear-filtering/simple/index.html"
+								><i class="fas fa-filter"></i> Bilinear/Trilinear Filtering</a
+							>
+						</li>
+						<li>
+							<a href="../../3d-cube/simple/index.html"
+								><i class="fas fa-cube"></i> 3D Cube Projection</a
+							>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="../../../public/index.html#team"
+						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://github.com/blessed-263/TSU-Projects-Blessed-"
+						target="_blank"
+						rel="noopener"
+					>
+						<i class="fab fa-github"></i>
+						<span class="link-name">Repository</span>
+					</a>
+				</li>
+				<li>
+					<a href="../../../public/index.html#updates"
+						><i class="fas fa-sync-alt"></i>
+						<span class="link-name">Updates</span></a
+					>
+				</li>
+			</ul>
+		</nav>
+		<div class="main-content">
+			<header>
+				<h1>Simple Rotation</h1>
+				<img
+					src="../../../../public/images/Rotation.jpg"
+					alt="Rotation in Everyday life"
+					class="beautiful-image"
+				/>
+			</header>
+			<main>
+				<section>
+					<h2>Algorithm Overview</h2>
+					<p>
+						The simple image rotation algorithm rotates an image by a specified
+						angle, typically in multiples of 90 degrees. This algorithm works by
+						repositioning the pixels of the image to create a rotated version
+						without distortion. It is widely used in image editing and
+						processing for tasks such as orientation correction and creative
+						effects.
+					</p>
+
+					<p style="text-align: right">
+						<a href="../advanced/index.html" class="advanced-link">
+							<i class="fas fa-arrow-right"></i> Go to Advanced Version
+						</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>How It Works</h2>
+					<ul>
+						<li>Step 1: The user uploads an image from their device.</li>
+						<li>
+							Step 2: The user selects the rotation angle (0°, 90°, 180°, 270°,
+							or 360°).
+						</li>
+						<li>
+							Step 3: The algorithm applies the rotation by transforming the
+							image pixels accordingly and displays the rotated image.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<p>
+						<label for="imageUpload" class="custom-file-upload">
+							<i class="fas fa-upload"></i> Choose Image
+						</label>
+						<input type="file" id="imageUpload" accept="image/*" />
+					</p>
+
+					<p>
+						<label for="rotation">Rotate (degrees, multiples of 90): </label>
+						<input
+							type="number"
+							id="rotation"
+							min="0"
+							max="360"
+							step="90"
+							value="0"
+						/>
+					</p>
+					<p>
+						<img id="output" alt="Uploaded Image will appear here" />
+					</p>
+				</section>
+
+				<p>
+					<button id="downloadBtn" disabled>Download Rotated Image</button>
+				</p>
+			</main>
+			<footer>
+				<p>© 2025 RIDING-SOLO | Blessed Panashe Nyathi</p>
+			</footer>
+		</div>
+	</body>
+</html>

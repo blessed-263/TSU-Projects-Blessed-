@@ -424,3 +424,128 @@ footer {
 		margin-left: 280px;
 	}
 }
+
+html {
+	scroll-behavior: smooth;
+}
+
+.contact-section {
+	max-width: 320px;
+	margin: 2rem auto;
+	padding: 1rem;
+	font-family: "Nunito Sans", sans-serif;
+	color: #16213e;
+	background: #f0f4f8;
+	border-radius: 12px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+	text-align: center;
+}
+
+.contact-section h2 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	color: #40506b;
+	letter-spacing: -0.3px;
+}
+
+.contact-links {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.contact-link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0.6rem 1.2rem;
+	background: white;
+	border-radius: 8px;
+	color: #40506b;
+	font-weight: 600;
+	font-size: 1.1rem;
+	text-decoration: none;
+	box-shadow: 0 2px 6px rgba(64, 80, 107, 0.15);
+	transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.contact-link i {
+	font-size: 1.4rem;
+	width: 24px;
+	text-align: center;
+	color: #7a8ba6;
+	transition: color 0.3s;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+	background-color: #40506b;
+	color: #f0f4f8;
+	box-shadow: 0 6px 20px rgba(64, 80, 107, 0.4);
+	outline: none;
+}
+
+.contact-link:hover i,
+.contact-link:focus i {
+	color: #f0f4f8;
+}
+
+.contact-section h3 {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 0.25rem;
+	color: #40506b;
+	letter-spacing: -0.3px;
+	margin-top: 0;
+}
+
+.your-name {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-size: 1.1rem;
+	color: #40506b;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+}
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+}
+
+.nav-links {
+	flex-grow: 1;
+	overflow-y: auto;
+}
+
+.sidebar-bottom-icon {
+	padding: 12px 24px;
+	color: #818181;
+	cursor: pointer;
+	text-align: center;
+	border-top: 1px solid #333;
+	user-select: none;
+	transition: color 0.3s ease;
+}
+
+.sidebar-bottom-icon:hover {
+	color: #fff;
+}
+
+.sidebar-bottom-icon img {
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	filter: invert(60%);
+	cursor: pointer;
+	transition: filter 0.3s ease;
+}
+
+.sidebar-bottom-icon:hover img {
+	filter: invert(100%);
+}

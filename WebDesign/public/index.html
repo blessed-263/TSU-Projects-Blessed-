@@ -18,6 +18,7 @@
 		/>
 		<link rel="stylesheet" href="../src/assets/css/main.css" />
 		<title>Image Processing Lab</title>
+		<script src="../src/assets/js/utils.js"></script>
 	</head>
 	<body>
 		<div class="menu-btn">
@@ -46,57 +47,57 @@
 					</div>
 					<ul class="sub-menu">
 						<li>
-							<a href="../src/algorithms/rotation/simple/">
+							<a href="../src/algorithms/rotation/simple/index.html">
 								<i class="fas fa-rotate"></i>
 								<span>Image Rotation</span>
 							</a>
 						</li>
 						<li>
-							<a href="../src/algorithms/color-correction/simple/">
+							<a href="../src/algorithms/color-correction/simple/index.html">
 								<i class="fas fa-palette"></i>
 								<span>Color Correction</span>
 							</a>
 						</li>
 						<li>
-							<a href="../src/algorithms/image-scaling/simple/">
+							<a href="../src/algorithms/image-scaling/simple/index.html">
 								<i class="fas fa-expand"></i>
 								<span>Image Scaling</span>
 							</a>
 						</li>
 						<li>
-							<a href="../src/algorithms/image-segmentation/simple/">
+							<a href="../src/algorithms/image-segmentation/simple/index.html">
 								<i class="fas fa-object-group"></i>
 								<span>Image Segmentation</span>
 							</a>
 						</li>
 						<li>
-							<a href="../src/algorithms/broken-lines/simple/">
+							<a href="../src/algorithms/broken-lines/simple/index.html">
 								<i class="fas fa-project-diagram"></i>
 								<span>Broken Lines</span>
 							</a>
 						</li>
 						<li>
-							<a href="../src/algorithms/retouching/simple/">
+							<a href="../src/algorithms/retouching/simple/index.html">
 								<i class="fas fa-magic"></i>
 								<span>Image Retouching</span>
 							</a>
 						</li>
 						<li>
-							<a href="../src/algorithms/unsharp-masking/simple/">
+							<a href="../src/algorithms/unsharp-masking/simple/index.html">
 								<i class="fas fa-mask"></i>
 								<span>Unsharp Masking</span>
 							</a>
 						</li>
 						<li>
 							<a
-								href="../src/algorithms/Bilinear-and-trilinear-filtering/simple/"
+								href="../src/algorithms/Bilinear-and-trilinear-filtering/simple/index.html"
 							>
 								<i class="fas fa-filter"></i>
 								<span>Bilinear/Trilinear</span>
 							</a>
 						</li>
 						<li>
-							<a href="../src/algorithms/3d-cube/simple/">
+							<a href="../src/algorithms/3d-cube/simple/index.html">
 								<i class="fas fa-cube"></i>
 								<span>3D Cube Projection</span>
 							</a>
@@ -126,6 +127,15 @@
 					</a>
 				</li>
 			</ul>
+
+			<div class="sidebar-bottom-icon" title="Information">
+				<img
+					src="../public/images/sidebar-icon.svg"
+					alt="Information Icon"
+					width="24"
+					height="24"
+				/>
+			</div>
 		</nav>
 
 		<div class="main-content">
@@ -217,8 +227,8 @@
 								<ul>
 									<li>Completed TSU's preparatory Russian language course</li>
 									<li>
-										Volunteer helping international students with administrative
-										processes
+										Volunteer, helping international students with
+										administrative processes
 									</li>
 									<li>
 										Experience navigating Russian academic and immigration
@@ -227,6 +237,41 @@
 								</ul>
 							</article>
 						</div>
+						<section class="contact-section" aria-label="Contact Links">
+							<h3>Contact Me</h3>
+							<nav class="contact-links" aria-label="Contact methods">
+								<a
+									href="https://github.com/blessed-263"
+									target="_blank"
+									rel="noopener"
+									class="contact-link"
+									aria-label="GitHub profile"
+								>
+									<i class="fab fa-github"></i>
+									<span>GitHub</span>
+								</a>
+								<a
+									href="https://wa.me/79962058047"
+									target="_blank"
+									rel="noopener"
+									class="contact-link"
+									aria-label="WhatsApp chat"
+								>
+									<i class="fab fa-whatsapp"></i>
+									<span>WhatsApp</span>
+								</a>
+								<a
+									href="https://linkedin.com/in/blessed-nyathi"
+									target="_blank"
+									rel="noopener"
+									class="contact-link"
+									aria-label="LinkedIn profile"
+								>
+									<i class="fab fa-linkedin"></i>
+									<span>LinkedIn</span>
+								</a>
+							</nav>
+						</section>
 					</div>
 				</section>
 
@@ -240,8 +285,8 @@
 						class="beautiful-image"
 					/>
 					<ol>
+						<li>Algorithm selection from dropdown/list</li>
 						<li>Image upload via file input</li>
-						<li>Algorithm selection from dropdown</li>
 						<li>Parameter adjustment through form controls</li>
 						<li>Real-time processing</li>
 						<li>Result export via browser APIs</li>
@@ -263,7 +308,9 @@
 								<h3>Image Rotation</h3>
 								<p>Simple: 90° increment rotation</p>
 								<p>Advanced: Arbitrary angles with frame correction</p>
-								<a href="../src/algorithms/rotation/simple/">Implementation</a>
+								<a href="../src/algorithms/rotation/simple/index.html"
+									>Implementation</a
+								>
 							</article>
 						</li>
 						<li>
@@ -271,7 +318,7 @@
 								<h3>Color Correction</h3>
 								<p>Simple: 3+ basic filters</p>
 								<p>Advanced: Algorithmically distinct filters</p>
-								<a href="../src/algorithms/color-correction/simple/"
+								<a href="../src/algorithms/color-correction/simple/index.html"
 									>Implementation</a
 								>
 							</article>
@@ -281,7 +328,7 @@
 								<h3>Image Scaling</h3>
 								<p>Simple: Basic scaling with interpolation</p>
 								<p>Advanced: Anti-aliased large scaling</p>
-								<a href="../src/algorithms/image-scaling/simple/"
+								<a href="../src/algorithms/image-scaling/simple/index.html"
 									>Implementation</a
 								>
 							</article>
@@ -291,7 +338,7 @@
 								<h3>Image Segmentation</h3>
 								<p>Simple: Geometric shape detection</p>
 								<p>Advanced: Complex object segmentation</p>
-								<a href="../src/algorithms/image-segmentation/simple/"
+								<a href="../src/algorithms/image-segmentation/simple/index.html"
 									>Implementation</a
 								>
 							</article>
@@ -301,7 +348,7 @@
 								<h3>Broken Lines & Splines</h3>
 								<p>Simple: Linear interpolation</p>
 								<p>Advanced: Adjustable convexity splines</p>
-								<a href="../src/algorithms/broken-lines/simple/"
+								<a href="../src/algorithms/broken-lines/simple/index.html"
 									>Implementation</a
 								>
 							</article>
@@ -311,7 +358,7 @@
 								<h3>Image Retouching</h3>
 								<p>Simple: Basic clone stamp</p>
 								<p>Advanced: Content-aware filling</p>
-								<a href="../src/algorithms/retouching/simple/"
+								<a href="../src/algorithms/retouching/simple/index.html"
 									>Implementation</a
 								>
 							</article>
@@ -321,7 +368,7 @@
 								<h3>Unsharp Masking</h3>
 								<p>Simple: Fixed kernel sharpening</p>
 								<p>Advanced: Adjustable parameters</p>
-								<a href="../src/algorithms/unsharp-masking/simple/"
+								<a href="../src/algorithms/unsharp-masking/simple/index.html"
 									>Implementation</a
 								>
 							</article>
@@ -332,7 +379,7 @@
 								<p>Simple: Basic image warping</p>
 								<p>Advanced: Mipmap-based filtering</p>
 								<a
-									href="../src/algorithms/Bilinear-and-trilinear-filtering/simple/"
+									href="../src/algorithms/Bilinear-and-trilinear-filtering/simple/index.html"
 									>Implementation</a
 								>
 							</article>
@@ -342,7 +389,9 @@
 								<h3>3D Cube Projection</h3>
 								<p>Simple: Fixed die rotation</p>
 								<p>Advanced: Customizable polyhedrons</p>
-								<a href="../src/algorithms/3d-cube/simple/">Implementation</a>
+								<a href="../src/algorithms/3d-cube/simple/index.html"
+									>Implementation</a
+								>
 							</article>
 						</li>
 					</ol>
