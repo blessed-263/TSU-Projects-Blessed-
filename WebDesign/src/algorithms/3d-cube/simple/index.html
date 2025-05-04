@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Simple [Algorithm Name] | Image Processing Web Application</title>
+		<title>3D Cube Projection | Image Processing Web Application</title>
+
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="../../../public/images/icon.svg"
+			href="../../../../public/images/icon.svg"
 		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
@@ -17,11 +18,10 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
+		<link rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="../../../assets/css/main.css" />
 		<link rel="stylesheet" href="../../../assets/css/utils.css" />
-		<link rel="stylesheet" href="style.css" />
 		<script src="../../../assets/js/utils.js" defer></script>
-		<script src="script.js" defer></script>
 	</head>
 	<body>
 		<div class="menu-btn"><i class="fas fa-bars"></i></div>
@@ -90,7 +90,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="../../../public/index.html#team"
+					<a href="../../../../public/index.html#team"
 						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
 					>
 				</li>
@@ -105,47 +105,164 @@
 					</a>
 				</li>
 				<li>
-					<a href="../../../public/index.html#updates"
+					<a href="../../../../public/index.html#updates"
 						><i class="fas fa-sync-alt"></i>
 						<span class="link-name">Updates</span></a
 					>
 				</li>
 			</ul>
 		</nav>
+
 		<div class="main-content">
 			<header>
-				<h1>3D Cube</h1>
+				<h1>3D Cube Projection</h1>
 				<img
 					src="../../../../public/images/cube.jpg"
-					alt="A beautiful-cube"
+					alt="Rotation in Everyday life"
 					class="beautiful-image"
 				/>
 			</header>
+
 			<main>
 				<section>
 					<h2>Algorithm Overview</h2>
 					<p>
-						<!-- Brief description of the simple algorithm version -->
-						The simple [algorithm name] algorithm performs basic [task
-						description]. This implementation is designed for clarity and ease
-						of understanding.
+						This algorithm displays a six-faced cube (d6) with distinct numbers
+						on each face and allows the user to change the viewpoint by rotating
+						the cube around three coordinate axes (X, Y, and Z). The cube is
+						represented by its 3D vertices and faces in model space, centered at
+						the origin.
+					</p>
+					<p>
+						The algorithm works by applying a series of transformations to the
+						cube’s vertices:
+					</p>
+					<ol>
+						<li>
+							<b>Model Transform:</b> Scale, rotate (around X, Y, Z axes), and
+							translate the cube in 3D space to position and orient it as
+							desired.
+						</li>
+						<li>
+							<b>View Transform:</b> Apply a camera transformation that
+							simulates the user’s point of view, positioning and orienting the
+							camera relative to the cube.
+						</li>
+						<li>
+							<b>Projection:</b> Project the 3D transformed vertices onto a 2D
+							plane using a perspective projection matrix, which simulates depth
+							and foreshortening by scaling points inversely proportional to
+							their distance from the camera.
+						</li>
+						<li>
+							<b>Rasterization:</b> Connect the projected 2D points to render
+							the cube’s edges and faces on the screen, displaying the cube with
+							correct perspective and orientation.
+						</li>
+					</ol>
+					<p style="text-align: right">
+						<a href="../advanced/index.html" class="advanced-link"
+							><i class="fas fa-arrow-right"></i> Go to Advanced Version</a
+						>
 					</p>
 				</section>
+
 				<section>
 					<h2>How It Works</h2>
 					<ul>
-						<li>Step 1: ...</li>
-						<li>Step 2: ...</li>
-						<li>Step 3: ...</li>
+						<li>
+							Step 1: The user views a 3D cube with distinct numbers on each of
+							its six faces.
+						</li>
+						<li>
+							Step 2: The user changes the viewpoint by rotating the cube around
+							the X, Y, and Z coordinate axes using controls or input.
+						</li>
+						<li>
+							Step 3: The algorithm applies 3D transformations (model, view, and
+							projection) to the cube’s vertices based on the user’s input.
+						</li>
+						<li>
+							Step 4: The transformed 3D points are projected onto a 2D plane
+							using perspective projection to simulate depth.
+						</li>
+						<li>
+							Step 5: The cube’s edges and faces are rendered on the screen,
+							updating dynamically as the user changes the viewpoint.
+						</li>
 					</ul>
 				</section>
+
 				<section>
-					<h2>Usage</h2>
+					<h2>Interactive Cube</h2>
+					<div id="cube-container" aria-label="3D rotating cube">
+						<div
+							id="cube"
+							role="img"
+							aria-label="3D cube with numbers on faces"
+						>
+							<div class="face front" data-face="front">1</div>
+							<div class="face back" data-face="back">6</div>
+							<div class="face right" data-face="right">2</div>
+							<div class="face left" data-face="left">5</div>
+							<div class="face top" data-face="top">3</div>
+							<div class="face bottom" data-face="bottom">4</div>
+						</div>
+					</div>
+
+					<div class="controls" aria-label="Cube rotation controls">
+						<label for="rotateX"
+							>Rotate X
+							<input type="range" id="rotateX" min="0" max="360" value="0" />
+						</label>
+						<label for="rotateY"
+							>Rotate Y
+							<input type="range" id="rotateY" min="0" max="360" value="0" />
+						</label>
+						<label for="rotateZ"
+							>Rotate Z
+							<input type="range" id="rotateZ" min="0" max="360" value="0" />
+						</label>
+					</div>
+
+					<div class="color-pickers" aria-label="Cube face color pickers">
+						<label
+							>Front Face Color:
+							<input type="color" id="color-front" value="#007bff"
+						/></label>
+						<label
+							>Back Face Color:
+							<input type="color" id="color-back" value="#007bff"
+						/></label>
+						<label
+							>Right Face Color:
+							<input type="color" id="color-right" value="#007bff"
+						/></label>
+						<label
+							>Left Face Color:
+							<input type="color" id="color-left" value="#007bff"
+						/></label>
+						<label
+							>Top Face Color:
+							<input type="color" id="color-top" value="#007bff"
+						/></label>
+						<label
+							>Bottom Face Color:
+							<input type="color" id="color-bottom" value="#007bff"
+						/></label>
+					</div>
+
+					<p style="text-align: center; margin-top: 1rem">
+						<button id="downloadBtn">Download Cube Image</button>
+					</p>
 				</section>
 			</main>
+
 			<footer>
 				<p>© 2025 RIDING-SOLO | Blessed Panashe Nyathi</p>
 			</footer>
 		</div>
+
+		<script src="script.js" defer></script>
 	</body>
 </html>

@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Simple [Algorithm Name] | Image Processing Web Application</title>
+		<title>Simple Colour Correction | Image Processing Web Application</title>
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="../../../public/images/icon.svg"
+			href="../../../../public/images/icon.svg"
 		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
@@ -30,7 +30,7 @@
 			<div class="close-btn"><i class="fas fa-times"></i></div>
 			<ul class="nav-links">
 				<li>
-					<a href="../../../public/index.html"
+					<a href="../../../../public/index.html"
 						><i class="fas fa-home"></i> <span class="link-name">Home</span></a
 					>
 				</li>
@@ -91,7 +91,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="../../../public/index.html#team"
+					<a href="../../../../public/index.html#team"
 						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
 					>
 				</li>
@@ -106,7 +106,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="../../../public/index.html#updates"
+					<a href="../../../../public/index.html#updates"
 						><i class="fas fa-sync-alt"></i>
 						<span class="link-name">Updates</span></a
 					>
@@ -115,10 +115,10 @@
 		</nav>
 		<div class="main-content">
 			<header>
-				<h1>Simple [Algorithm Name]</h1>
+				<h1>Simple Colour-Correction</h1>
 				<img
-					src="../../../public/images/[algorithm-image].jpg"
-					alt="[Algorithm Name] Example"
+					src="../../../../public/images/colour-gradient.jpg"
+					alt="Beautiful Colourful image"
 					class="beautiful-image"
 				/>
 			</header>
@@ -126,10 +126,36 @@
 				<section>
 					<h2>Algorithm Overview</h2>
 					<p>
-						<!-- Brief description of the simple algorithm version -->
-						The simple [algorithm name] algorithm performs basic [task
-						description]. This implementation is designed for clarity and ease
-						of understanding.
+						The colour filter algorithm applies a selected colour filter to an
+						input image by modifying the image’s pixel colour values to
+						emphasize or alter specific colour components. This process
+						generates a new image that visually reflects the chosen filter
+						effect.
+					</p>
+					<h4>Red Filter</h4>
+					<p>
+						The red filter algorithm increases the intensity of the red channel
+						in each pixel while reducing the green and blue channels. This makes
+						reds more prominent and can warm the overall image tone. It works by
+						scaling or adding to the red values and attenuating the other
+						channels, effectively tinting the image red.
+					</p>
+
+					<h4>Blue Filter</h4>
+					<p>
+						The blue filter algorithm enhances the blue channel of each pixel,
+						suppressing red and green components. This creates a cooler, bluish
+						effect on the image. The filter adjusts pixel values to emphasize
+						blues, which can evoke a cold or serene mood.
+					</p>
+					<h4>Green Filter</h4>
+
+					<p>
+						The green filter algorithm boosts the green channel intensity while
+						reducing red and blue channels. This highlights greens and can give
+						the image a fresh, natural look. It modifies pixel colours to
+						emphasize green hues, often used to enhance foliage or nature
+						scenes.
 					</p>
 
 					<p style="text-align: right">
@@ -141,14 +167,42 @@
 				<section>
 					<h2>How It Works</h2>
 					<ul>
-						<li>Step 1: ...</li>
-						<li>Step 2: ...</li>
-						<li>Step 3: ...</li>
+						<li>Step 1: The user uploads an image from their device.</li>
+						<li>
+							Step 2: The user selects filter to be applied (Red, Blue, Green)
+						</li>
+						<li>
+							Step 3: The algorithm applies the filter and image is available
+							for download
+						</li>
 					</ul>
 				</section>
 				<section>
-					<h2>Usage</h2>
+					<p>
+						<label for="imageUpload" class="custom-file-upload">
+							<i class="fas fa-upload"></i> Choose Image
+						</label>
+						<input type="file" id="imageUpload" accept="image/*" />
+					</p>
+
+					<p>
+						<label for="color-correction"
+							>Apply filters(Red, Green. Blue):
+						</label>
+						<select id="colorFilter">
+							<option value="red">Red</option>
+							<option value="blue">Blue</option>
+							<option value="green">Green</option>
+						</select>
+					</p>
+					<p>
+						<img id="output" alt="Uploaded Image will appear here" />
+					</p>
 				</section>
+
+				<p>
+					<button id="downloadBtn" disabled>Download Filtered</button>
+				</p>
 			</main>
 			<footer>
 				<p>© 2025 RIDING-SOLO | Blessed Panashe Nyathi</p>
