@@ -1,0 +1,51 @@
+input[type="file"] {
+	margin: 12px 0;
+}
+
+button {
+	background: #2e72d2;
+	color: #fff;
+	border: none;
+	padding: 10px 22px;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	margin: 8px 0;
+	transition: background 0.2s;
+}
+
+button:disabled {
+	background: #b0b9c6;
+	cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+	background: #184a8d;
+}
+
+canvas {
+	display: block;
+	margin: 0 auto;
+	background: #e9e9f0;
+	border: 1px solid #bbb;
+	border-radius: 6px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.advanced-link {
+	color: #2e72d2;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s;
+}
+.advanced-link:hover {
+	color: #184a8d;
+	text-decoration: underline;
+}
+
+footer {
+	text-align: center;
+	color: #999;
+	font-size: 0.95em;
+	margin-top: 32px;
+}

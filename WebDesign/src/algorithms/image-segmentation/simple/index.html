@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Simple [Algorithm Name] | Image Processing Web Application</title>
+		<title>Simple Segmentation | Image Processing Web Application</title>
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="../../../public/images/icon.svg"
+			href="../../../../public/images/icon.svg"
 		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
@@ -19,7 +19,6 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
-
 		<link rel="stylesheet" href="style.css" />
 		<script src="../../../assets/js/utils.js" defer></script>
 		<script src="script.js" defer></script>
@@ -30,7 +29,7 @@
 			<div class="close-btn"><i class="fas fa-times"></i></div>
 			<ul class="nav-links">
 				<li>
-					<a href="../../../public/index.html"
+					<a href="../../../../public/index.html"
 						><i class="fas fa-home"></i> <span class="link-name">Home</span></a
 					>
 				</li>
@@ -91,7 +90,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="../../../public/index.html#team"
+					<a href="../../../../public/index.html#team"
 						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
 					>
 				</li>
@@ -100,25 +99,25 @@
 						href="https://github.com/blessed-263/TSU-Projects-Blessed-"
 						target="_blank"
 						rel="noopener"
+						><i class="fab fa-github"></i>
+						<span class="link-name">Repository</span></a
 					>
-						<i class="fab fa-github"></i>
-						<span class="link-name">Repository</span>
-					</a>
 				</li>
 				<li>
-					<a href="../../../public/index.html#updates"
+					<a href="../../../../public/index.html#updates"
 						><i class="fas fa-sync-alt"></i>
 						<span class="link-name">Updates</span></a
 					>
 				</li>
 			</ul>
 		</nav>
+
 		<div class="main-content">
 			<header>
-				<h1>Simple [Algorithm Name]</h1>
+				<h1>Simple Image Segmentation</h1>
 				<img
-					src="../../../public/images/[algorithm-image].jpg"
-					alt="[Algorithm Name] Example"
+					src="../../../../public/images/segment.jpg"
+					alt="Segments"
 					class="beautiful-image"
 				/>
 			</header>
@@ -126,10 +125,11 @@
 				<section>
 					<h2>Algorithm Overview</h2>
 					<p>
-						<!-- Brief description of the simple algorithm version -->
-						The simple [algorithm name] algorithm performs basic [task
-						description]. This implementation is designed for clarity and ease
-						of understanding.
+						This segmentation tool allows you to load an image and highlight
+						geometric shapes within it. The segmentation mode identifies and
+						outlines simple geometric objects (such as circles, rectangles, and
+						triangles) in images that contain them, producing a result with the
+						segments visually highlighted.
 					</p>
 					<p style="text-align: right">
 						<a href="../advanced/index.html" class="advanced-link">
@@ -140,13 +140,31 @@
 				<section>
 					<h2>How It Works</h2>
 					<ul>
-						<li>Step 1: ...</li>
-						<li>Step 2: ...</li>
-						<li>Step 3: ...</li>
+						<li>Upload an image containing geometric shapes.</li>
+						<li>Select "Segmentation Mode" to process the image.</li>
+						<li>
+							The algorithm analyzes the image, detects geometric shapes, and
+							highlights their boundaries on the canvas.
+						</li>
+						<li>
+							The result is an image with the detected segments visually
+							outlined or colored.
+						</li>
 					</ul>
 				</section>
 				<section>
 					<h2>Usage</h2>
+					<label for="imageLoader"><strong>Select an Image:</strong></label>
+					<input type="file" id="imageLoader" accept="image/*" />
+					<br /><br />
+					<button id="segmentBtn" disabled>Segmentation Mode</button>
+					<br /><br />
+					<canvas
+						id="imageCanvas"
+						style="border: 1px solid #ccc; max-width: 100%"
+					></canvas>
+					<br /><br />
+					<button id="downloadBtn" disabled>Download Segmented Image</button>
 				</section>
 			</main>
 			<footer>
