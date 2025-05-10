@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
-	// --- Responsive sidebar behavior ---
 	function handleResponsive() {
 		if (window.innerWidth < 992) {
 			sidebar.classList.remove("active");
