@@ -1,0 +1,51 @@
+canvas {
+	display: block;
+	margin: 20px auto;
+	background: #e9e9f0;
+	border: 2px solid #2563eb;
+	border-radius: 8px;
+	max-width: 100%;
+	box-shadow: 0 1px 8px rgba(37, 99, 235, 0.06);
+}
+
+button,
+.custom-file-upload {
+	background: #2e72d2;
+	color: #fff;
+	border: none;
+	padding: 10px 22px;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	margin: 8px 2px;
+	transition: background 0.2s;
+	font-family: inherit;
+	font-weight: 600;
+}
+
+button:disabled,
+.custom-file-upload:disabled {
+	background: #b0b9c6;
+	cursor: not-allowed;
+}
+
+button:not(:disabled):hover,
+.custom-file-upload:hover {
+	background: #184a8d;
+}
+
+.custom-file-upload {
+	display: inline-block;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+#inputCanvas {
+	border: 1px solid #ccc;
+	margin-bottom: 1rem;
+	max-width: 100%;
+	height: auto;
+	display: none;
+}
