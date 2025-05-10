@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			Advanced Spline Interpolation | Image Processing Web Application
+		</title>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="../../../../public/images/icon.svg"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../../assets/css/utils.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<script src="../../../assets/js/utils.js" defer></script>
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<div class="menu-btn"><i class="fas fa-bars"></i></div>
+		<nav class="sidebar" aria-label="Main navigation">
+			<div class="close-btn"><i class="fas fa-times"></i></div>
+			<ul class="nav-links">
+				<li>
+					<a href="../../../../public/index.html"
+						><i class="fas fa-home"></i> <span class="link-name">Home</span></a
+					>
+				</li>
+				<li>
+					<div class="icon-link">
+						<a href="#"
+							><i class="fas fa-code"></i
+							><span class="link-name">Algorithms</span></a
+						>
+						<i class="fas fa-angle-down arrow"></i>
+					</div>
+					<ul class="sub-menu">
+						<li>
+							<a href="../../rotation/simple/index.html"
+								><i class="fas fa-rotate"></i> Image Rotation</a
+							>
+						</li>
+						<li>
+							<a href="../../color-correction/simple/index.html"
+								><i class="fas fa-palette"></i> Color Correction</a
+							>
+						</li>
+						<li>
+							<a href="../../image-scaling/simple/index.html"
+								><i class="fas fa-expand"></i> Image Scaling</a
+							>
+						</li>
+						<li>
+							<a href="../../image-segmentation/simple/index.html"
+								><i class="fas fa-object-group"></i> Image Segmentation</a
+							>
+						</li>
+						<li>
+							<a href="../../broken-lines/simple/index.html"
+								><i class="fas fa-project-diagram"></i> Spline Interpolation</a
+							>
+						</li>
+						<li>
+							<a href="../../retouching/simple/index.html"
+								><i class="fas fa-magic"></i> Retouching</a
+							>
+						</li>
+						<li>
+							<a href="../../unsharp-masking/simple/index.html"
+								><i class="fas fa-mask"></i> Unsharp Masking</a
+							>
+						</li>
+						<li>
+							<a href="../../Bilinear-and-trilinear-filtering/simple/index.html"
+								><i class="fas fa-filter"></i> Bilinear/Trilinear Filtering</a
+							>
+						</li>
+						<li>
+							<a href="../../3d-cube/simple/index.html"
+								><i class="fas fa-cube"></i> 3D Cube Projection</a
+							>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="../../../../public/index.html#team"
+						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://github.com/blessed-263/TSU-Projects-Blessed-"
+						target="_blank"
+						rel="noopener"
+						><i class="fab fa-github"></i>
+						<span class="link-name">Repository</span></a
+					>
+				</li>
+				<li>
+					<a href="../../../../public/index.html#updates"
+						><i class="fas fa-sync-alt"></i>
+						<span class="link-name">Updates</span></a
+					>
+				</li>
+			</ul>
+		</nav>
+		<div class="main-content">
+			<header>
+				<h1>Advanced Spline Interpolation</h1>
+				<img
+					src="../../../../public/images/lines-curves.jpg"
+					alt="lines and curves"
+					class="beautiful-image"
+				/>
+			</header>
+			<main>
+				<section>
+					<h2>Algorithm Overview</h2>
+					<p>
+						Draw a broken line by clicking points on the canvas. Enable spline
+						interpolation to create a smooth curve. For each spline interval,
+						adjust its convexity (curvature) using the sliders below the canvas.
+						This algorithm applies bezier curves due to: 
+						<ol>
+							<li>Smoothness: Cubic
+						Bézier curves are smooth and continuously differentiable, making
+						them ideal for vector graphics, font design, and animation paths.</li>
+
+						<li>Adjustable Curvature: By moving the control points, designers can
+						precisely shape the curve. </li>
+
+						<li>Piecewise Construction: Complex shapes
+						are often built by connecting multiple Bézier curves with continuity
+						conditions ensuring smooth transitions.</li>
+
+						<li> Curve Length and
+						Optimization: Algorithms exist to approximate curve length and
+						optimize curvature for applications like path smoothing and
+						collision avoidance</li>
+						</ol>
+						
+						 
+					</p>
+					<p style="text-align: right">
+						<a href="../simple/index.html" class="advanced-link">
+							<i class="fas fa-arrow-left"></i> Back to Simple Version
+						</a>
+					</p>
+				</section>
+				<section>
+					<h2>How It Works</h2>
+					<ul>
+						<li>Click the canvas to add points and create a broken line.</li>
+						<li>
+							Click "Interpolate Spline" to draw a smooth spline through the
+							points.
+						</li>
+						<li>
+							Adjust the convexity slider for each interval to change the
+							curve's shape locally.
+						</li>
+						<li>Click "Reset" to clear the canvas and start over.</li>
+						<li>Download the result as an image.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Usage</h2>
+					<canvas id="splineCanvas" width="800" height="400"></canvas>
+					<div id="convexityControls" class="convexity-controls"></div>
+					<div class="button-row">
+						<button id="interpolateBtn" disabled>Interpolate Spline</button>
+						<button id="resetBtn" disabled>Reset</button>
+						<button id="downloadBtn" disabled>Download Image</button>
+					</div>
+				</section>
+			</main>
+			<footer>
+				<p>© 2025 RIDING-SOLO | Blessed Panashe Nyathi</p>
+			</footer>
+		</div>
+	</body>
+</html>

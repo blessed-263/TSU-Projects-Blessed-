@@ -1,0 +1,37 @@
+canvas {
+	display: block;
+	margin: 24px auto 18px auto;
+	background: #f9f9f9;
+	border: 2px solid #2563eb;
+	border-radius: 8px;
+	max-width: 100%;
+	box-shadow: 0 1px 8px rgba(37, 99, 235, 0.06);
+}
+
+.button-row {
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+button {
+	background: #2e72d2;
+	color: #fff;
+	border: none;
+	padding: 10px 22px;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	margin: 8px 2px;
+	transition: background 0.2s;
+	font-family: inherit;
+	font-weight: 600;
+}
+
+button:disabled {
+	background: #b0b9c6;
+	cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+	background: #184a8d;
+}

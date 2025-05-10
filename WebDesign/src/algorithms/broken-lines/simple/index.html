@@ -3,11 +3,13 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Simple [Algorithm Name] | Image Processing Web Application</title>
+		<title>
+			Broken Lines & Spline Interpolation | Image Processing Web Application
+		</title>
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="../../../public/images/icon.svg"
+			href="../../../../public/images/icon.svg"
 		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
@@ -15,6 +17,10 @@
 		/>
 		<link rel="stylesheet" href="../../../assets/css/main.css" />
 		<link rel="stylesheet" href="../../../assets/css/utils.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
 		<link rel="stylesheet" href="style.css" />
 		<script src="../../../assets/js/utils.js" defer></script>
 		<script src="script.js" defer></script>
@@ -25,15 +31,15 @@
 			<div class="close-btn"><i class="fas fa-times"></i></div>
 			<ul class="nav-links">
 				<li>
-					<a href="../../../public/index.html"
+					<a href="../../../../public/index.html"
 						><i class="fas fa-home"></i> <span class="link-name">Home</span></a
 					>
 				</li>
 				<li>
 					<div class="icon-link">
 						<a href="#"
-							><i class="fas fa-code"></i>
-							<span class="link-name">Algorithms</span></a
+							><i class="fas fa-code"></i
+							><span class="link-name">Algorithms</span></a
 						>
 						<i class="fas fa-angle-down arrow"></i>
 					</div>
@@ -86,7 +92,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="../../../public/index.html#team"
+					<a href="../../../../public/index.html#team"
 						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
 					>
 				</li>
@@ -95,13 +101,12 @@
 						href="https://github.com/blessed-263/TSU-Projects-Blessed-"
 						target="_blank"
 						rel="noopener"
+						><i class="fab fa-github"></i>
+						<span class="link-name">Repository</span></a
 					>
-						<i class="fab fa-github"></i>
-						<span class="link-name">Repository</span>
-					</a>
 				</li>
 				<li>
-					<a href="../../../public/index.html#updates"
+					<a href="../../../../public/index.html#updates"
 						><i class="fas fa-sync-alt"></i>
 						<span class="link-name">Updates</span></a
 					>
@@ -110,10 +115,10 @@
 		</nav>
 		<div class="main-content">
 			<header>
-				<h1>Simple [Algorithm Name]</h1>
+				<h1>Broken Lines & Spline Interpolation</h1>
 				<img
-					src="../../../public/images/[algorithm-image].jpg"
-					alt="[Algorithm Name] Example"
+					src="../../../../public/images/spline.jpg"
+					alt="Lines"
 					class="beautiful-image"
 				/>
 			</header>
@@ -121,11 +126,16 @@
 				<section>
 					<h2>Algorithm Overview</h2>
 					<p>
-						<!-- Brief description of the simple algorithm version -->
-						The simple [algorithm name] algorithm performs basic [task
-						description]. This implementation is designed for clarity and ease
-						of understanding.
-					</p>
+						This tool lets you create a broken line (polyline) by clicking points on the canvas. You can then enable spline interpolation to smoothly connect the points. This page implements a B-spline due to its:
+						<ol>
+						  <li><b><i>Flexibility:</i></b> The degree of the B-spline curve is independent of the number of control points, allowing you to add as many points as needed without increasing complexity.</li>
+						  <li><b><i>Smoothness:</i></b> B-splines provide smooth curves that are visually pleasing and continuous in their derivatives, making transitions between points seamless.</li>
+						  <li><b><i>Local control:</i></b> Moving one control point only affects a small portion of the curve, so you can adjust parts of the curve without changing the entire shape.</li>
+						  <li><b><i>Stability:</i></b> B-splines avoid unwanted oscillations and behave well even with many control points, unlike some other spline types.</li>
+						  <li><b><i>Efficiency:</i></b> The mathematical formulation allows for fast computation and rendering, making it suitable for interactive tools like this one.</li>
+						</ol>
+					  </p>
+					  
 					<p style="text-align: right">
 						<a href="../advanced/index.html" class="advanced-link">
 							<i class="fas fa-arrow-right"></i> Go to Advanced Version
@@ -135,13 +145,23 @@
 				<section>
 					<h2>How It Works</h2>
 					<ul>
-						<li>Step 1: ...</li>
-						<li>Step 2: ...</li>
-						<li>Step 3: ...</li>
+						<li>Click the canvas to add points and create a broken line.</li>
+						<li>
+							Click "Interpolate Spline" to draw a smooth spline through the
+							points.
+						</li>
+						<li>Click "Reset" to clear the canvas and start over.</li>
+						<li>Download the result as an image.</li>
 					</ul>
 				</section>
 				<section>
 					<h2>Usage</h2>
+					<canvas id="splineCanvas" width="800" height="400"></canvas>
+					<div class="button-row">
+						<button id="interpolateBtn" disabled>Interpolate Spline</button>
+						<button id="resetBtn" disabled>Reset</button>
+						<button id="downloadBtn" disabled>Download Image</button>
+					</div>
 				</section>
 			</main>
 			<footer>
