@@ -32,9 +32,9 @@ A responsive **web application** built with **HTML, CSS, and JavaScript** that i
 | **Image Scaling**        | Basic scaling                | Anti-aliasing for large scales  |
 | **Image Segmentation**   | Geometric shapes             | Object/people contours (OpenCV) |
 | **Spline Interpolation** | Broken → spline              | Adjustable convexity            |
-| **Retouching**           | Basic spot fix               | Content-aware fill              |
-| **Unsharp Masking**      | Fixed kernel ratios          | Custom kernel control           |
-| **Bilinear/Trilinear**   | Basic transform              | Dynamic scaling choice          |
+| **Retouching**           | Basic spot fix               | ----------                      |
+| **Unsharp Masking**      | Custom Paramters             | ----------                      |
+| **Bilinear/Trilinear**   | Basic transform              | ----------                      |
 | **3D Cube**              | D6 cube                      | N-face selection (Three.js)     |
 
 ---
@@ -74,4 +74,4 @@ A responsive **web application** built with **HTML, CSS, and JavaScript** that i
 
 - git clone https://github.com/blessed-263/TSU-Projects-Blessed-.git
 - cd TSU-Projects-Blessed-
-- open public/index.html # Or use Live Server in VS Cod
+- open public/index.html # Or use Live Server in VS Code
