@@ -1,0 +1,21 @@
+input[type="file"],
+input[type="number"],
+button {
+	padding: 8px;
+	margin: 5px 0;
+	font-size: 1rem;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background-color: #007bff;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+}
+
+button:disabled {
+	background-color: #888;
+	cursor: not-allowed;
+}

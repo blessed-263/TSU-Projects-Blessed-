@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Simple [Algorithm Name] | Image Processing Web Application</title>
+		<title>Simple Unsharp-Masking | Image Processing Web Application</title>
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="../../../public/images/icon.svg"
+			href="../../../../public/images/icon.svg"
 		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
@@ -19,7 +19,6 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
-
 		<link rel="stylesheet" href="style.css" />
 		<script src="../../../assets/js/utils.js" defer></script>
 		<script src="script.js" defer></script>
@@ -30,16 +29,16 @@
 			<div class="close-btn"><i class="fas fa-times"></i></div>
 			<ul class="nav-links">
 				<li>
-					<a href="../../../public/index.html"
-						><i class="fas fa-home"></i> <span class="link-name">Home</span></a
-					>
+					<a href="../../../public/index.html">
+						<i class="fas fa-home"></i> <span class="link-name">Home</span>
+					</a>
 				</li>
 				<li>
 					<div class="icon-link">
-						<a href="#"
-							><i class="fas fa-code"></i>
-							<span class="link-name">Algorithms</span></a
-						>
+						<a href="#">
+							<i class="fas fa-code"></i>
+							<span class="link-name">Algorithms</span>
+						</a>
 						<i class="fas fa-angle-down arrow"></i>
 					</div>
 					<ul class="sub-menu">
@@ -91,9 +90,9 @@
 					</ul>
 				</li>
 				<li>
-					<a href="../../../public/index.html#team"
-						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
-					>
+					<a href="../../../public/index.html#team">
+						<i class="fas fa-users"></i> <span class="link-name">Team</span>
+					</a>
 				</li>
 				<li>
 					<a
@@ -106,50 +105,104 @@
 					</a>
 				</li>
 				<li>
-					<a href="../../../public/index.html#updates"
-						><i class="fas fa-sync-alt"></i>
-						<span class="link-name">Updates</span></a
-					>
+					<a href="../../../public/index.html#updates">
+						<i class="fas fa-sync-alt"></i>
+						<span class="link-name">Updates</span>
+					</a>
 				</li>
 			</ul>
 		</nav>
+
 		<div class="main-content">
 			<header>
-				<h1>Simple [Algorithm Name]</h1>
+				<h1>Simple Unsharp Masking</h1>
 				<img
-					src="../../../public/images/[algorithm-image].jpg"
-					alt="[Algorithm Name] Example"
+					src="../../../../public/images/mask3.jpg"
+					alt="Unsharp Masking Example"
 					class="beautiful-image"
 				/>
 			</header>
+
 			<main>
 				<section>
 					<h2>Algorithm Overview</h2>
 					<p>
-						<!-- Brief description of the simple algorithm version -->
-						The simple [algorithm name] algorithm performs basic [task
-						description]. This implementation is designed for clarity and ease
-						of understanding.
-					</p>
-
-					<p style="text-align: right">
-						<a href="../advanced/index.html" class="advanced-link">
-							<i class="fas fa-arrow-right"></i> Go to Advanced Version
-						</a>
+						Unsharp masking enhances the sharpness of an image by subtracting a
+						blurred version of the image from the original, amplifying edges and
+						fine details. This is useful for sharpening scanned photos or
+						emphasizing texture.
 					</p>
 				</section>
+
 				<section>
 					<h2>How It Works</h2>
 					<ul>
-						<li>Step 1: ...</li>
-						<li>Step 2: ...</li>
-						<li>Step 3: ...</li>
+						<li>The user selects an image to upload.</li>
+						<li>
+							The user adjusts parameters for amount, radius, and threshold.
+						</li>
+						<li>
+							The algorithm processes and sharpens the image using those values.
+						</li>
 					</ul>
 				</section>
+
 				<section>
-					<h2>Usage</h2>
+					<label for="imageLoader"><strong>Select an Image:</strong></label>
+					<input type="file" id="imageLoader" accept="image/*" />
+					<br /><br />
+
+					<div>
+						<label for="amount">Amount:</label>
+						<input
+							type="number"
+							id="amount"
+							min="0"
+							max="10"
+							step="0.1"
+							value="1"
+						/>
+						<br />
+						<label for="radius">Radius:</label>
+						<input
+							type="number"
+							id="radius"
+							min="0"
+							max="10"
+							step="0.1"
+							value="1"
+						/>
+						<br />
+						<label for="threshold">Threshold:</label>
+						<input
+							type="number"
+							id="threshold"
+							min="0"
+							max="255"
+							step="1"
+							value="0"
+						/>
+					</div>
+					<br />
+
+					<button id="applyBtn">Apply Unsharp Mask</button>
+					<br /><br />
+
+					<h3>Original Image:</h3>
+					<img
+						id="originalImage"
+						src=""
+						alt="Original"
+						style="max-width: 100%; display: none"
+					/>
+
+					<h3>Processed Image:</h3>
+					<canvas id="resultCanvas"></canvas>
+					<br />
+					<button id="downloadBtn" disabled>Download Processed Image</button>
 				</section>
 			</main>
+
 			<footer>
 				<p>© 2025 RIDING-SOLO | Blessed Panashe Nyathi</p>
 			</footer>
