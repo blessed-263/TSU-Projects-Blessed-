@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Simple [Algorithm Name] | Image Processing Web Application</title>
+		<title>Simple Image Retouching | Image Processing Web Application</title>
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="../../../public/images/icon.svg"
+			href="../../../../public/images/icon.svg"
 		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
@@ -19,7 +19,6 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
-
 		<link rel="stylesheet" href="style.css" />
 		<script src="../../../assets/js/utils.js" defer></script>
 		<script src="script.js" defer></script>
@@ -100,10 +99,9 @@
 						href="https://github.com/blessed-263/TSU-Projects-Blessed-"
 						target="_blank"
 						rel="noopener"
+						><i class="fab fa-github"></i>
+						<span class="link-name">Repository</span></a
 					>
-						<i class="fab fa-github"></i>
-						<span class="link-name">Repository</span>
-					</a>
 				</li>
 				<li>
 					<a href="../../../public/index.html#updates"
@@ -113,42 +111,76 @@
 				</li>
 			</ul>
 		</nav>
+
 		<div class="main-content">
 			<header>
-				<h1>Simple [Algorithm Name]</h1>
+				<h1>Simple Image Retouching</h1>
 				<img
-					src="../../../public/images/[algorithm-image].jpg"
-					alt="[Algorithm Name] Example"
+					src="../../../../public/images/touch2.jpg"
+					alt="Touching"
 					class="beautiful-image"
 				/>
 			</header>
+
 			<main>
 				<section>
 					<h2>Algorithm Overview</h2>
 					<p>
-						<!-- Brief description of the simple algorithm version -->
-						The simple [algorithm name] algorithm performs basic [task
-						description]. This implementation is designed for clarity and ease
-						of understanding.
-					</p>
-					<p style="text-align: right">
-						<a href="../advanced/index.html" class="advanced-link">
-							<i class="fas fa-arrow-right"></i> Go to Advanced Version
-						</a>
+						This simple retouching tool allows you to select an area on the
+						image to be retouched. You are provided with retouching options to
+						apply to the image
+						<br>
+						<br>
+
+						<h4><b>Retouching Options:</b></h4>
+						<ol>
+							<li>Grayscale</li>
+							<li>Blur</li>
+							<li>Sharpen</li>
+							<li>Spot Removal</li>
+							<li>Vignette</li>
+							<li>Dodge and Burn</li>
+						</ol>
 					</p>
 				</section>
+
 				<section>
 					<h2>How It Works</h2>
 					<ul>
-						<li>Step 1: ...</li>
-						<li>Step 2: ...</li>
-						<li>Step 3: ...</li>
+						<li>Upload an image.</li>
+						<li>Choose a retouching option.</li>
+						<li>Click and drag on the image to select the area to retouch.</li>
+						<li>Release the mouse to apply the retouch effect.</li>
+						<li>Download the retouched image if satisfied.</li>
 					</ul>
 				</section>
+
 				<section>
 					<h2>Usage</h2>
+					<label for="imageLoader"><strong>Select an Image:</strong></label>
+					<input type="file" id="imageLoader" accept="image/*" />
+					<br /><br />
+
+					<select id="retouchOptions">
+						<option value="grayscale">Grayscale</option>
+						<option value="blur">Blur</option>
+						<option value="sharpen">Sharpen</option>
+						<option value="spotRemoval">Spot Removal</option>
+						<option value="vignette">Vignette</option>
+						<option value="dodgeAndBurn">Dodge and Burn</option>
+					</select>
+					<br /><br />
+
+					<canvas
+						id="imageCanvas"
+						style="border: 1px solid #ccc; max-width: 100%"
+					></canvas>
+					<br /><br />
+
+					<button id="downloadBtn" disabled>Download Retouched Image</button>
 				</section>
 			</main>
+
 			<footer>
 				<p>© 2025 RIDING-SOLO | Blessed Panashe Nyathi</p>
 			</footer>

@@ -1,0 +1,31 @@
+#imageCanvas {
+	cursor: crosshair;
+	display: block;
+	margin: 0 auto;
+	border-radius: 4px;
+}
+
+#downloadBtn {
+	padding: 10px 20px;
+	font-size: 1rem;
+	background-color: #007bff;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+}
+
+#downloadBtn:disabled {
+	background-color: #999;
+	cursor: not-allowed;
+}
+
+#retouchOptions {
+	padding: 10px 20px;
+	font-size: 1rem;
+	background-color: #1d1e20;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+}
