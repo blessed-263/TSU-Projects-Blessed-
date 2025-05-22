@@ -25,57 +25,79 @@ imageUpload.addEventListener("change", (e) => {
 	reader.readAsDataURL(file);
 });
 
+// Cubic convolution kernel function for bicubic interpolation
+function cubicHermite(t) {
+	const a = -0.5; // Catmull-Rom spline parameter
+	if (t < 0) t = -t;
+	const t2 = t * t;
+	const t3 = t2 * t;
+	if (t <= 1) {
+		return (a + 2) * t3 - (a + 3) * t2 + 1;
+	} else if (t < 2) {
+		return a * t3 - 5 * a * t2 + 8 * a * t - 4 * a;
+	}
+	return 0;
+}
+
+// Get pixel RGBA value from source image data with boundary checks
+function getPixel(data, width, height, x, y, c) {
+	x = Math.min(width - 1, Math.max(0, x));
+	y = Math.min(height - 1, Math.max(0, y));
+	return data[(y * width + x) * 4 + c];
+}
+
+// Bicubic interpolation for one channel
+function bicubicInterpolate(data, width, height, x, y, c) {
+	const xInt = Math.floor(x);
+	const yInt = Math.floor(y);
+	let result = 0;
+	for (let m = -1; m <= 2; m++) {
+		const mm = yInt + m;
+		const wY = cubicHermite(y - mm);
+		for (let n = -1; n <= 2; n++) {
+			const nn = xInt + n;
+			const wX = cubicHermite(x - nn);
+			const pixel = getPixel(data, width, height, nn, mm, c);
+			result += pixel * wX * wY;
+		}
+	}
+	return Math.min(255, Math.max(0, result));
+}
+
 scaleBtn.addEventListener("click", () => {
 	const scale = parseFloat(scaleRatioInput.value);
-	if (isNaN(scale) || scale <= 0) return alert("Enter a valid scale ratio > 0");
+	if (isNaN(scale) || scale <= 0) {
+		alert("Please enter a valid scale ratio greater than 0.");
+		return;
+	}
 
 	const srcWidth = inputCanvas.width;
 	const srcHeight = inputCanvas.height;
 	const destWidth = Math.floor(srcWidth * scale);
 	const destHeight = Math.floor(srcHeight * scale);
 
-	const srcData = inputCtx.getImageData(0, 0, srcWidth, srcHeight);
-	const srcPixels = srcData.data;
+	const srcImageData = inputCtx.getImageData(0, 0, srcWidth, srcHeight);
+	const srcPixels = srcImageData.data;
 
 	const destImageData = outputCtx.createImageData(destWidth, destHeight);
 	const destPixels = destImageData.data;
 
-	// Bilinear interpolation function
-	function bilinearInterpolate(x, y, c) {
-		// x and y are floating point coordinates in source image space
-		const x1 = Math.floor(x);
-		const y1 = Math.floor(y);
-		const x2 = Math.min(x1 + 1, srcWidth - 1);
-		const y2 = Math.min(y1 + 1, srcHeight - 1);
-
-		const dx = x - x1;
-		const dy = y - y1;
-
-		// Pixel indices for the four neighbors
-		const i11 = (y1 * srcWidth + x1) * 4 + c;
-		const i21 = (y1 * srcWidth + x2) * 4 + c;
-		const i12 = (y2 * srcWidth + x1) * 4 + c;
-		const i22 = (y2 * srcWidth + x2) * 4 + c;
-
-		// Interpolate in x direction
-		const r1 = srcPixels[i11] * (1 - dx) + srcPixels[i21] * dx;
-		const r2 = srcPixels[i12] * (1 - dx) + srcPixels[i22] * dx;
-
-		// Interpolate in y direction
-		return r1 * (1 - dy) + r2 * dy;
-	}
-
 	for (let j = 0; j < destHeight; j++) {
 		for (let i = 0; i < destWidth; i++) {
-			// Map destination pixel to source image coordinate
+			// Map destination pixel to source coordinate space
 			const srcX = i / scale;
 			const srcY = j / scale;
+			const destIdx = (j * destWidth + i) * 4;
 
-			const destIndex = (j * destWidth + i) * 4;
-
-			// Interpolate each color channel (R,G,B,A)
 			for (let c = 0; c < 4; c++) {
-				destPixels[destIndex + c] = bilinearInterpolate(srcX, srcY, c);
+				destPixels[destIdx + c] = bicubicInterpolate(
+					srcPixels,
+					srcWidth,
+					srcHeight,
+					srcX,
+					srcY,
+					c
+				);
 			}
 		}
 	}
