@@ -10,16 +10,15 @@
 
 ## 🌟 Project Overview
 
-A responsive **web application** built with **HTML, CSS, and JavaScript** that implements **9 core image-processing algorithms**, each with **simple** and **advanced** versions.
+This is a responsive **web application** built using **HTML, CSS, and JavaScript** that implements **9 core image-processing algorithms**, each on a separate page. Some algorithms have both **Simple** and **Advanced** versions, while others only have a Simple version.
 
-**Key Features:**
+The application features:
 
-- ✅ 9 algorithms covering essential image operations
-- ✅ Interactive UI with real-time previews
-- ✅ Responsive design (desktop & mobile)
-- ✅ Modular, maintainable codebase
-
----
+- ✅ Implementation of 9 distinct image processing algorithms
+- ✅ Separation of algorithms into individual pages for modularity
+- ✅ Interactive UI with real-time previews and controls
+- ✅ Responsive design for desktop and mobile devices
+- ✅ Clean, maintainable, and modular codebase
 
 ---
 
@@ -28,50 +27,41 @@ A responsive **web application** built with **HTML, CSS, and JavaScript** that i
 | Algorithm                | Simple Version               | Advanced Version                |
 | ------------------------ | ---------------------------- | ------------------------------- |
 | **Image Rotation**       | 90° increments               | Arbitrary angles + frame fix    |
-| **Color Filters**        | 3 basic filters (B/W, Sepia) | 3+ algorithmic filters (HSV)    |
+| **Color Filters**        | 3 basic filters (B/W, Sepia) | Additional algorithmic filters  |
 | **Image Scaling**        | Basic scaling                | Anti-aliasing for large scales  |
 | **Image Segmentation**   | Geometric shapes             | Object/people contours (OpenCV) |
 | **Spline Interpolation** | Broken → spline              | Adjustable convexity            |
-| **Retouching**           | Basic spot fix               | ----------                      |
-| **Unsharp Masking**      | Custom Paramters             | ----------                      |
-| **Bilinear/Trilinear**   | Basic transform              | ----------                      |
+| **Retouching**           | Basic spot fix               | _No advanced version_           |
+| **Unsharp Masking**      | Custom parameters            | _No advanced version_           |
+| **Bilinear/Trilinear**   | Basic transform              | _No advanced version_           |
 | **3D Cube**              | D6 cube                      | N-face selection (Three.js)     |
 
 ---
 
-## 🚀 Development Progress
+## 🗓️ Project Timeline
 
-### Day 1 (April 29, 2025)
-
-- Created project repository and folder structure
-
-### Day 2 (April 30, 2025)
-
-- Drafted initial README.md
-- Set up base HTML/CSS for the main page
-
-### Day 3 (May 1, 2025)
-
-- Created template HTML files for all algorithm pages (simple & advanced)
-- Set up directory structure for simple and advanced algorithm implementations
-- Added Font Awesome integration for UI icons
-- Implemented navigation sidebar with dropdown functionality
-- Created links between simple and advanced algorithm versions
-- Established consistent styling across all pages
-- **Implemented Simple and Advanced versions of the Image Rotation algorithm**
-
----
-
-## 🗓️ Next Steps
-
-- [ ] Implement other core algorithms (start with Filters/Scaling)
-- [ ] Add interactive sliders/buttons for adjustments
-- [ ] Optimize performance for large images
+The entire project, including design, implementation, testing, and optimization of all algorithms and their versions, was completed within **4 weeks**.
 
 ---
 
 ## ⚡ How to Run
 
-- git clone https://github.com/blessed-263/TSU-Projects-Blessed-.git
-- cd TSU-Projects-Blessed-
-- open public/index.html # Or use Live Server in VS Code
+git clone https://github.com/blessed-263/TSU-Projects-Blessed-.git
+cd TSU-Projects-Blessed-
+
+Open the main page in your browser:
+open public/index.html
+
+Or use Live Server extension in VS Code for best experience
+
+---
+
+## 📚 Module 7 Project Rules Summary
+
+- The project implements multiple image processing algorithms, each on a separate page.
+- Some algorithms have simple and advanced versions; others only have simple.
+- The team consists of 1-3 members and maintains a GitHub repository.
+- Weekly progress presentations are required; failure results in penalties.
+- Points are awarded for algorithm completion, UI/UX quality, and code maintainability.
+- Final grading occurs at the module exam with point redistribution among team members possible.
+- The project emphasizes responsive frontend development using HTML, CSS, and JavaScript.
