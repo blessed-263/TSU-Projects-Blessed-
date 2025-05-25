@@ -1,133 +1,156 @@
-let originalMat = null;
+// script.js
 
-const checkOpenCVReady = setInterval(() => {
-	if (window.cv) {
-		clearInterval(checkOpenCVReady);
-		if (!window.cvReady) {
-			console.log("OpenCV detected via fallback check");
-			onOpenCvReady();
-		}
+// Get references to DOM elements
+const statusElement = document.createElement("p");
+statusElement.id = "opencv-status";
+document.querySelector(".main-content").prepend(statusElement);
+
+const imageLoader = document.getElementById("imageLoader");
+const segmentBtn = document.getElementById("segmentBtn");
+const downloadBtn = document.getElementById("downloadBtn");
+const canvas = document.getElementById("imageCanvas");
+
+let cvInstance = null; // OpenCV instance after loading
+let originalMat = null; // Original image as OpenCV Mat
+
+// Load OpenCV.js and wait for it to be ready
+async function loadOpenCv() {
+	try {
+		cvInstance = await window.cv;
+		statusElement.innerText = "OpenCV.js is ready.";
+		segmentBtn.disabled = false;
+	} catch (err) {
+		statusElement.innerText = "Failed to load OpenCV.js.";
+		console.error("Error loading OpenCV.js:", err);
 	}
-}, 100);
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-	const inputElement = document.getElementById("uploadInput");
-	const imgElement = document.getElementById("previewImg");
-	const canvas = document.getElementById("imageCanvas");
-	const ctx = canvas.getContext("2d");
-	const applyBtn = document.getElementById("applyBtn");
-	const downloadBtn = document.getElementById("downloadBtn");
+// Handle image upload and draw to canvas
+imageLoader.addEventListener("change", (e) => {
+	if (e.target.files.length > 0) {
+		const imgFile = e.target.files[0];
+		const imgURL = URL.createObjectURL(imgFile);
+		const img = new Image();
+		img.onload = () => {
+			canvas.width = img.width;
+			canvas.height = img.height;
+			const ctx = canvas.getContext("2d");
+			ctx.drawImage(img, 0, 0);
 
-	function cleanup() {
-		if (originalMat && !originalMat.isDeleted()) {
-			originalMat.delete();
-			originalMat = null;
-		}
-	}
+			if (originalMat) originalMat.delete();
 
-	inputElement.addEventListener("change", (event) => {
-		if (event.target.files.length === 0) return;
-
-		const file = event.target.files[0];
-		if (!file.type.match("image.*")) {
-			alert("Please select an image file");
-			return;
-		}
-
-		const url = URL.createObjectURL(file);
-		imgElement.onload = function () {
-			URL.revokeObjectURL(url);
-			handleImageLoad();
-		};
-		imgElement.onerror = function () {
-			URL.revokeObjectURL(url);
-			alert("Error loading image");
-		};
-		imgElement.src = url;
-		imgElement.classList.remove("hidden");
-		downloadBtn.disabled = true;
-		cleanup();
-	});
-
-	function handleImageLoad() {
-		if (!window.cvReady) {
-			alert("OpenCV.js is not ready yet. Please wait.");
-			return;
-		}
-
-		try {
-			cleanup();
-			originalMat = cv.imread(imgElement);
-			canvas.width = originalMat.cols;
-			canvas.height = originalMat.rows;
-			cv.imshow(canvas, originalMat);
-		} catch (err) {
-			console.error("Error processing image:", err);
-			alert("Error processing image. See console for details.");
-			cleanup();
-		}
-	}
-
-	applyBtn.addEventListener("click", () => {
-		if (!window.cvReady) {
-			alert("OpenCV.js is not ready yet.");
-			return;
-		}
-		if (!originalMat) {
-			alert("Please upload an image first.");
-			return;
-		}
-
-		try {
-			let src = originalMat.clone();
-			let gray = new cv.Mat();
-			let blurred = new cv.Mat();
-			let thresh = new cv.Mat();
-			let contours = new cv.MatVector();
-			let hierarchy = new cv.Mat();
-
-			cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY);
-			cv.GaussianBlur(gray, blurred, new cv.Size(5, 5), 0);
-			cv.threshold(blurred, thresh, 100, 255, cv.THRESH_BINARY);
-			cv.findContours(
-				thresh,
-				contours,
-				hierarchy,
-				cv.RETR_EXTERNAL,
-				cv.CHAIN_APPROX_SIMPLE
-			);
-
-			for (let i = 0; i < contours.size(); ++i) {
-				let color = new cv.Scalar(255, 0, 0, 255);
-				cv.drawContours(src, contours, i, color, 2, cv.LINE_8, hierarchy, 100);
+			try {
+				originalMat = cvInstance.imread(canvas);
+				statusElement.innerText = "Image loaded. Ready for segmentation.";
+				downloadBtn.disabled = true;
+			} catch (err) {
+				statusElement.innerText = "Error reading image with OpenCV.js.";
+				console.error("cv.imread error:", err);
 			}
-
-			cv.imshow(canvas, src);
-			downloadBtn.disabled = false;
-
-			src.delete();
-			gray.delete();
-			blurred.delete();
-			thresh.delete();
-			contours.delete();
-			hierarchy.delete();
-		} catch (err) {
-			console.error("Error applying segmentation:", err);
-			alert("Error during image processing. See console for details.");
-		}
-	});
-
-	downloadBtn.addEventListener("click", () => {
-		try {
-			const link = document.createElement("a");
-			link.download = "segmented_image.png";
-			link.href = canvas.toDataURL("image/png");
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-		} catch (err) {
-			console.error("Error downloading image:", err);
-			alert("Error downloading image. See console for details.");
-		}
-	});
+		};
+		img.onerror = () => {
+			statusElement.innerText = "Failed to load the selected image.";
+		};
+		img.src = imgURL;
+	}
 });
+
+// Perform contour detection and draw contours on button click
+segmentBtn.addEventListener("click", () => {
+	if (!cvInstance || !originalMat) {
+		statusElement.innerText =
+			"Load an image and wait for OpenCV.js to be ready.";
+		return;
+	}
+
+	let gray = new cvInstance.Mat();
+	let blurred = new cvInstance.Mat();
+	let edges = new cvInstance.Mat();
+	let hierarchy = new cvInstance.Mat();
+	let contours = new cvInstance.MatVector();
+
+	try {
+		// Convert to grayscale
+		cvInstance.cvtColor(originalMat, gray, cvInstance.COLOR_RGBA2GRAY, 0);
+
+		// Apply Gaussian blur to reduce noise
+		cvInstance.GaussianBlur(gray, blurred, new cvInstance.Size(5, 5), 0);
+
+		// Apply Canny edge detector (tune thresholds as needed)
+		cvInstance.Canny(blurred, edges, 50, 150);
+
+		// Optional: dilate edges to close gaps
+		let kernel = cvInstance.getStructuringElement(
+			cvInstance.MORPH_RECT,
+			new cvInstance.Size(3, 3)
+		);
+		cvInstance.dilate(edges, edges, kernel);
+
+		// Find contours from edges
+		cvInstance.findContours(
+			edges,
+			contours,
+			hierarchy,
+			cvInstance.RETR_EXTERNAL,
+			cvInstance.CHAIN_APPROX_SIMPLE
+		);
+
+		// Clone original image to draw contours
+		let contourImg = originalMat.clone();
+
+		let minContourArea = 100; // Filter small contours (adjust as needed)
+		let validContoursCount = 0;
+
+		for (let i = 0; i < contours.size(); ++i) {
+			let cnt = contours.get(i);
+			let area = cvInstance.contourArea(cnt, false);
+			if (area > minContourArea) {
+				validContoursCount++;
+				const color = new cvInstance.Scalar(
+					Math.round(Math.random() * 255),
+					Math.round(Math.random() * 255),
+					Math.round(Math.random() * 255),
+					255
+				);
+				cvInstance.drawContours(
+					contourImg,
+					contours,
+					i,
+					color,
+					2,
+					cvInstance.LINE_8,
+					hierarchy,
+					0
+				);
+			}
+			cnt.delete();
+		}
+
+		cvInstance.imshow(canvas, contourImg);
+		contourImg.delete();
+		kernel.delete();
+
+		statusElement.innerText = `Contours detected: ${validContoursCount}`;
+		downloadBtn.disabled = false;
+	} catch (err) {
+		statusElement.innerText = "Error during contour detection.";
+		console.error("Contour detection error:", err);
+	} finally {
+		gray.delete();
+		blurred.delete();
+		edges.delete();
+		hierarchy.delete();
+		contours.delete();
+	}
+});
+
+// Download the processed image as PNG
+downloadBtn.addEventListener("click", () => {
+	const link = document.createElement("a");
+	link.download = "segmented-image.png";
+	link.href = canvas.toDataURL("image/png");
+	link.click();
+});
+
+// Initialize OpenCV.js loading after page load
+window.addEventListener("load", loadOpenCv);

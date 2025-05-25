@@ -3,9 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>
-			<b>Advanced</b> Image-Segmentation | Image Processing Web Application
-		</title>
+		<title>Simple Segmentation | Image Processing Web Application</title>
 		<link
 			rel="icon"
 			type="image/svg+xml"
@@ -24,42 +22,23 @@
 		<link rel="stylesheet" href="style.css" />
 		<script src="../../../assets/js/utils.js" defer></script>
 		<script src="script.js" defer></script>
-		<script>
-			function onOpenCvReady() {
-				console.log("OpenCV.js is ready");
-				document.getElementById("applyBtn").disabled = false;
-				document.getElementById("loading").classList.add("hidden");
-				window.cvReady = true;
-			}
-
-			document.addEventListener("DOMContentLoaded", function () {
-				document.getElementById("loading").classList.remove("hidden");
-			});
-		</script>
-		<script
-			async
-			src="https://docs.opencv.org/4.5.5/opencv.js"
-			onload="onOpenCvReady()"
-			onerror="console.error('Failed to load OpenCV.js')"
-		></script>
 	</head>
 	<body>
-		<div id="loading">Loading OpenCV.js, please wait...</div>
 		<div class="menu-btn"><i class="fas fa-bars"></i></div>
 		<nav class="sidebar" aria-label="Main navigation">
 			<div class="close-btn"><i class="fas fa-times"></i></div>
 			<ul class="nav-links">
 				<li>
-					<a href="../../../public/index.html">
-						<i class="fas fa-home"></i> <span class="link-name">Home</span>
-					</a>
+					<a href="../../../../public/index.html"
+						><i class="fas fa-home"></i> <span class="link-name">Home</span></a
+					>
 				</li>
 				<li>
 					<div class="icon-link">
-						<a href="#">
-							<i class="fas fa-code"></i>
-							<span class="link-name">Algorithms</span>
-						</a>
+						<a href="#"
+							><i class="fas fa-code"></i>
+							<span class="link-name">Algorithms</span></a
+						>
 						<i class="fas fa-angle-down arrow"></i>
 					</div>
 					<ul class="sub-menu">
@@ -111,36 +90,34 @@
 					</ul>
 				</li>
 				<li>
-					<a href="../../../public/index.html#team">
-						<i class="fas fa-users"></i> <span class="link-name">Team</span>
-					</a>
+					<a href="../../../../public/index.html#team"
+						><i class="fas fa-users"></i> <span class="link-name">Team</span></a
+					>
 				</li>
 				<li>
 					<a
 						href="https://github.com/blessed-263/TSU-Projects-Blessed-"
 						target="_blank"
 						rel="noopener"
+						><i class="fab fa-github"></i>
+						<span class="link-name">Repository</span></a
 					>
-						<i class="fab fa-github"></i>
-						<span class="link-name">Repository</span>
-					</a>
 				</li>
 				<li>
-					<a href="../../../public/index.html#updates">
-						<i class="fas fa-sync-alt"></i>
-						<span class="link-name">Updates</span>
-					</a>
+					<a href="../../../../public/index.html#updates"
+						><i class="fas fa-sync-alt"></i>
+						<span class="link-name">Updates</span></a
+					>
 				</li>
 			</ul>
 		</nav>
 
 		<div class="main-content">
 			<header>
-				<h1>Image Segmentation</h1>
-				<h2>Using OpenCV</h2>
+				<h1>Simple Image Segmentation</h1>
 				<img
-					src="../../../../public/images/contours.jpg"
-					alt="Unsharp Masking Example"
+					src="../../../../public/images/segment.jpg"
+					alt="Segments"
 					class="beautiful-image"
 				/>
 			</header>
@@ -149,53 +126,57 @@
 				<section>
 					<h2>Algorithm Overview</h2>
 					<p>
-						This page applies image segmentation using OpenCV.js and shows
-						contours around detected objects.
+						This segmentation tool allows you to load an image and highlight
+						geometric shapes within it. The segmentation mode identifies and
+						outlines simple geometric objects (such as circles, rectangles, and
+						triangles) in images that contain them, producing a result with the
+						segments visually highlighted.
 					</p>
-
 					<p style="text-align: right">
 						<a href="../simple/index.html" class="advanced-link">
 							<i class="fas fa-arrow-left"></i> Back to Simple Version
 						</a>
 					</p>
 				</section>
-				<h3>How to use</h3>
-				<ol>
-					<li>Upload an image using the file selector</li>
-					<li>Click the "Apply" button to process the image</li>
-					<li>Download the processed image using the "Download" button</li>
-				</ol>
-			</section>
-	
-			<section>
-				<div>
-					<input type="file" id="uploadInput" accept="image/*" />
-				</div>
-	
-				<div>
-					<img
-						id="previewImg"
-						alt="Image preview will appear here"
-						class="hidden"
-					/>
-				</div>
-	
-				<div>
-					<canvas id="imageCanvas" style="border: 1px solid #000"></canvas>
-				</div>
-	
-				<div>
-					<button id="applyBtn" disabled>Apply Segmentation</button>
-					<button id="downloadBtn" disabled>Download Result</button>
-				</div>
-			</section>
-	
-			<script src="script.js"></script>
+				<section>
+					<h2>How It Works</h2>
+					<ul>
+						<li>Upload an image containing geometric shapes.</li>
+						<li>Select "Segmentation Mode" to process the image.</li>
+						<li>
+							The algorithm analyzes the image, detects geometric shapes, and
+							highlights their boundaries on the canvas.
+						</li>
+						<li>
+							The result is an image with the detected segments visually
+							outlined or colored.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Usage</h2>
+					<label for="imageLoader"><strong>Select an Image:</strong></label>
+					<input type="file" id="imageLoader" accept="image/*" />
+					<br /><br />
+					<button id="segmentBtn" disabled>Segmentation Mode</button>
+					<br /><br />
+					<canvas
+						id="imageCanvas"
+						style="border: 1px solid #ccc; max-width: 100%"
+					></canvas>
+					<br /><br />
+					<button id="downloadBtn" disabled>Download Segmented Image</button>
+				</section>
 			</main>
 
 			<footer>
 				<p>© 2025 RIDING-SOLO | Blessed Panashe Nyathi</p>
 			</footer>
 		</div>
+		<script
+			async
+			src="https://docs.opencv.org/4.x/opencv.js"
+			type="text/javascript"
+		></script>
 	</body>
 </html>

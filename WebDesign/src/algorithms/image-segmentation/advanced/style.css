@@ -1,42 +1,87 @@
-body {
-	font-family: Arial, sans-serif;
-	line-height: 1.6;
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
-}
-section {
-	margin-bottom: 30px;
-}
-button {
-	padding: 8px 16px;
-	margin: 5px;
-	cursor: pointer;
-}
-#previewImg,
+/* Canvas styling for segmentation results */
 #imageCanvas {
+	cursor: crosshair;
+	display: block;
+	margin: 20px auto;
+	border-radius: 6px;
+	border: 2px solid #007bff;
 	max-width: 100%;
-	height: auto;
-	margin: 10px 0;
-}
-#loading {
-	padding: 10px;
-	background: #f0f0f0;
-	margin: 10px 0;
-}
-.hidden {
-	display: none;
+	box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
-body {
-	color: #dcdcdc;
-	font-family: "Nunito Sans", "Montserrat", sans-serif;
-	transition: background-color 0.3s ease, color 0.3s ease;
+/* File input styling */
+#imageLoader {
+	display: block;
+	margin: 15px auto 10px auto;
+	padding: 8px 12px;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	cursor: pointer;
+	max-width: 300px;
+	width: 100%;
 }
 
-.main-content {
-	background-color: #3a3a3a;
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+/* Segmentation button styling */
+#segmentBtn {
+	padding: 12px 25px;
+	font-size: 1.1rem;
+	background-color: #007bff;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	display: block;
+	margin: 10px auto;
+	transition: background-color 0.3s ease;
+}
+
+#segmentBtn:hover:not(:disabled) {
+	background-color: #0056b3;
+}
+
+#segmentBtn:disabled {
+	background-color: #999;
+	cursor: not-allowed;
+}
+
+/* Download button styling */
+#downloadBtn {
+	padding: 12px 25px;
+	font-size: 1.1rem;
+	background-color: #28a745;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	display: block;
+	margin: 10px auto 30px auto;
+	transition: background-color 0.3s ease;
+}
+
+#downloadBtn:hover:not(:disabled) {
+	background-color: #1e7e34;
+}
+
+#downloadBtn:disabled {
+	background-color: #999;
+	cursor: not-allowed;
+}
+
+#opencv-status {
+	text-align: center;
+	font-weight: 600;
+	margin-top: 15px;
+	color: #333;
+	font-family: "Nunito Sans", sans-serif;
+}
+
+@media (max-width: 480px) {
+	#segmentBtn,
+	#downloadBtn,
+	#imageLoader {
+		width: 90%;
+		font-size: 1rem;
+		padding: 10px 20px;
+	}
 }

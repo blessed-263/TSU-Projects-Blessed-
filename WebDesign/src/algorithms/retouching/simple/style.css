@@ -1,8 +1,13 @@
 #imageCanvas {
-	cursor: crosshair;
+	max-width: 800px;
+	max-height: 600px;
+	width: 100%;
+	height: auto;
+	border: 1px solid #ccc;
 	display: block;
-	margin: 0 auto;
+	margin: 20px auto;
 	border-radius: 4px;
+	cursor: crosshair;
 }
 
 #downloadBtn {

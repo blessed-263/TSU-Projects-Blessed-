@@ -127,10 +127,23 @@
 					<p>
 						This segmentation tool allows you to load an image and highlight
 						geometric shapes within it. The segmentation mode identifies and
-						outlines simple geometric objects (such as circles, rectangles, and
-						triangles) in images that contain them, producing a result with the
-						segments visually highlighted.
+						outlines simple objects in images that contain them, producing a
+						result with the segments visually highlighted.
 					</p>
+					<section>
+						<h4>How Image Segmentation Works in This App</h4>
+						<p>
+							This application performs basic image segmentation using built-in
+							JavaScript and the HTML5 Canvas API. It first converts the
+							uploaded image to grayscale, then applies the Sobel edge detection
+							algorithm to identify edges by calculating gradients in pixel
+							intensity. Detected edges are highlighted in red, allowing you to
+							visually distinguish shapes and boundaries in the image. No
+							external libraries are used; all processing is done through direct
+							pixel manipulation on the canvas.
+						</p>
+					</section>
+
 					<p style="text-align: right">
 						<a href="../advanced/index.html" class="advanced-link">
 							<i class="fas fa-arrow-right"></i> Go to Advanced Version
