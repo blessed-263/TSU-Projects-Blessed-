@@ -88,7 +88,7 @@ Or use Live Server in VS Code for best experience
 - Algorithms include:
   - Image Rotation (simple: multiples of 90°, advanced: arbitrary angles + frame fix)
   - Color Correction/Filters (minimum 3 distinct filters; advanced: algorithmically different filters)
-  - Image Scaling (simple scaling; advanced: anti-aliasing)
+  - Image Scaling (simple scaling; advanced: Without jaggies)
   - Image Segmentation (simple geometric shapes; advanced: complex contours using OpenCV.js)
   - Spline Interpolation (broken lines to splines; advanced: adjustable convexity)
   - Retouching (area marking and fixing)
