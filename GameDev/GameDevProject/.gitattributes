@@ -1,0 +1,2 @@
+Assets/Characters/Alien.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Characters/*.asset filter=lfs diff=lfs merge=lfs -text
